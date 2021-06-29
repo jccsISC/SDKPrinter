@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -55,6 +58,10 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
 
     private String[] fileItems = null;
 
+    //for the bitmap
+    FrameLayout myView;
+    Bitmap myBitmap;
+
     public static ImageFragment newInstance() {
         ImageFragment fragment = new ImageFragment();
         Bundle args = new Bundle();
@@ -70,6 +77,19 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_image, container, false);
+
+        //todo inflando vista para imprimir bitmap
+        View inflatedFrame = getLayoutInflater().inflate(R.layout.ticket, null);
+        FrameLayout frameLayout = inflatedFrame.findViewById(R.id.ticketFrameLayout) ;
+        frameLayout.setDrawingCacheEnabled(true);
+        frameLayout.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        frameLayout.layout(0, 0, frameLayout.getMeasuredWidth(), frameLayout.getMeasuredHeight());
+        frameLayout.buildDrawingCache(true);
+        myBitmap = frameLayout.getDrawingCache();
+//        final Bitmap bm = frameLayout.getDrawingCache();
+
+
 
         layoutStartPage = view.findViewById(R.id.LinearLayout5);
         layoutEndPage = view.findViewById(R.id.LinearLayout6);
@@ -98,7 +118,7 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
 
         Spinner imageAlignment = view.findViewById(R.id.imageAlignment);
         Spinner imageDither = view.findViewById(R.id.imageDither);
-        Spinner imageCompress= view.findViewById(R.id.imageCompress);
+        Spinner imageCompress = view.findViewById(R.id.imageCompress);
 
         ArrayAdapter alignmentAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.Alignment, android.R.layout.simple_spinner_dropdown_item);
         alignmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -195,7 +215,8 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                 switch (radioGroupPrintingType.getCheckedRadioButtonId()) {
                     case R.id.radioImage:
 //                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither);
-                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither, spinnerCompress);
+//                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither, spinnerCompress);
+                        MainActivity.getPrinterInstance().printImage(myBitmap, width, alignment, brightness, spinnerDither, spinnerCompress);
 
                         break;
                 }

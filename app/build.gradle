@@ -25,6 +25,9 @@ android {
     packagingOptions {
         exclude 'META-INF/REFACTORINGS.XML'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {

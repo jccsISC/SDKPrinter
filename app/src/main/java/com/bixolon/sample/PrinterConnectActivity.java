@@ -238,7 +238,6 @@ public class PrinterConnectActivity extends AppCompatActivity implements RadioGr
                 textViewBluetooth.setVisibility(View.VISIBLE);
                 listView.setVisibility(View.VISIBLE);
                 layoutIPAddress.setVisibility(View.GONE);
-
                 setPairedDevices();
                 break;
             case R.id.radioBLE:
@@ -246,7 +245,6 @@ public class PrinterConnectActivity extends AppCompatActivity implements RadioGr
                 textViewBluetooth.setVisibility(View.VISIBLE);
                 listView.setVisibility(View.VISIBLE);
                 layoutIPAddress.setVisibility(View.GONE);
-
                 setBleDevices();
                 break;
             case R.id.radioWifi:
@@ -254,7 +252,6 @@ public class PrinterConnectActivity extends AppCompatActivity implements RadioGr
                 layoutIPAddress.setVisibility(View.VISIBLE);
                 textViewBluetooth.setVisibility(View.GONE);
                 listView.setVisibility(View.VISIBLE);
-
                 setNetworkDevices();
                 break;
             case R.id.radioUSB:

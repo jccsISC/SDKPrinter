@@ -124,6 +124,7 @@ public class TextFragment extends Fragment implements OnClickListener{
                 String strDataPersonalized = "         23/Jun/2021      \n" +
                                              "<b font-size=25px;>PAGO EXITOSO!!</b>";
 
+
                 String content="<h1>Heading 1</h1>\n" +
                         "        <h2>Heading 2</h2>\n" +
                         "        <p>This is some html. Look, here's an <u>underline</u>.</p>\n" +

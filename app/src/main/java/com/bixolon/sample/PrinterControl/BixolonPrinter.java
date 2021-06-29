@@ -3,12 +3,15 @@ package com.bixolon.sample.PrinterControl;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
+import android.widget.FrameLayout;
 
 import com.bixolon.sample.CashDrawerFragment;
 import com.bixolon.sample.DirectIOFragment;
 import com.bixolon.sample.MainActivity;
 import com.bixolon.sample.MsrFragment;
 import com.bixolon.sample.PageModeFragment;
+import com.bixolon.sample.R;
 import com.bixolon.sample.TextFragment;
 import com.bixolon.sample.ImageFragment;
 import com.bixolon.sample.BarcodeFragment;
