@@ -264,6 +264,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
 
     }
 
+    /**Abrir la siguiente vista*/
     public boolean printerOpen(int portType, String logicalName, String address, boolean isAsyncMode) {
         if (setTargetDevice(portType, logicalName, BXLConfigLoader.DEVICE_CATEGORY_POS_PRINTER, address)) {
             try {
@@ -291,6 +292,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
         return true;
     }
 
+    /***/
     public boolean printerClose() {
         try {
             if (posPrinter.getClaimed()) {
@@ -565,6 +567,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
         return ret;
     }
 
+    /**Metodo para imprimir nuestro diseño xml*/
     public boolean printImage(Bitmap bitmap, int width, int alignment, int brightness, int dither, int compress) {
         boolean ret = true;
 

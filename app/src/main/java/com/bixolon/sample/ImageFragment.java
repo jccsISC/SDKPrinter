@@ -86,7 +86,7 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                 View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
         frameLayout.layout(0, 0, frameLayout.getMeasuredWidth(), frameLayout.getMeasuredHeight());
         frameLayout.buildDrawingCache(true);
-        myBitmap = frameLayout.getDrawingCache();
+        myBitmap = frameLayout.getDrawingCache(); /**bitmap*/
 //        final Bitmap bm = frameLayout.getDrawingCache();
 
 
