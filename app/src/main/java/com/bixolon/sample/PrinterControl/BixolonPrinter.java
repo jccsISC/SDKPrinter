@@ -155,114 +155,115 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
 
     }
 
-    public void r220Test(int cnt){
-        try {
-            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_TRANSACTION);
-
-            posPrinter.setPageModePrintArea("0,0,416,800");
-            posPrinter.setPageModePrintDirection(POSPrinterConst.PTR_PD_LEFT_TO_RIGHT);
-            posPrinter.setPageModeHorizontalPosition(75);
-            posPrinter.setPageModeVerticalPosition(45);
-            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_PAGE_MODE);
-
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(13)+EscapeSequence.getString(15) + (cnt+ 1)+ "統一速達股份有限公司\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(28);
-            posPrinter.setPageModeVerticalPosition(95);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(16) + (cnt + 1 )+ "電子發票證明聯\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(52);
-            posPrinter.setPageModeVerticalPosition(145);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)  + EscapeSequence.getString(16)+ "period" + "月 \r\n");
-
-            posPrinter.setPageModeHorizontalPosition(48);
-            posPrinter.setPageModeVerticalPosition(205);
-
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(2) + EscapeSequence.getString(27)+ EscapeSequence.getString(19) + "123456789"+ "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(240);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "yyyy-MM-dd HH:mm:ss" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(270);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "隨機碼 " + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(220);
-            posPrinter.setPageModeVerticalPosition(270);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "voiceMoney" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(300);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "賣方 " + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(220);
-            posPrinter.setPageModeVerticalPosition(300);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "買方:" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(35);
-            posPrinter.setPageModeVerticalPosition(320);
-            int symbology = POSPrinterConst.PTR_BCS_Code39;
-            int height = 50;
-            int width = 1;
-            int alignment = POSPrinterConst.PTR_BC_CENTER;
-            int textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT,"1234567890", symbology, height, width, alignment,
-                    textPosition);
-
-            posPrinter.setPageModeHorizontalPosition(20);
-            posPrinter.setPageModeVerticalPosition(550);
-            symbology = POSPrinterConst.PTR_BCS_QRCODE;
-            height = 0;
-            width = 3;
-            alignment = POSPrinterConst.PTR_BC_LEFT;
-            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
-                    textPosition);
-
-            posPrinter.setPageModeHorizontalPosition(200);
-            posPrinter.setPageModeVerticalPosition(550);
-            symbology = POSPrinterConst.PTR_BCS_QRCODE;
-            height = 0;
-            width = 3;
-            alignment = POSPrinterConst.PTR_BC_LEFT;
-            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
-                    textPosition);
-
-
-            posPrinter.setPageModeHorizontalPosition(0);
-            posPrinter.setPageModeVerticalPosition(570);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "品名:配送費  X " + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(250);
-            posPrinter.setPageModeVerticalPosition(570);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(600);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "銷售額:" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(220);
-            posPrinter.setPageModeVerticalPosition(600);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) +"稅額:" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(630);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "稅額:" + "\r\n");
-
-            posPrinter.setPageModeHorizontalPosition(10);
-            posPrinter.setPageModeVerticalPosition(660);
-            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "換開發票請於7日內攜正本更換\r\n");
-
-            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_NORMAL);
-
-            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_NORMAL);
-        } catch (Exception e) {
-
-        }
-
-    }
+    //todo si no se ocupa eliminar
+//    public void r220Test(int cnt){
+//        try {
+//            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_TRANSACTION);
+//
+//            posPrinter.setPageModePrintArea("0,0,416,800");
+//            posPrinter.setPageModePrintDirection(POSPrinterConst.PTR_PD_LEFT_TO_RIGHT);
+//            posPrinter.setPageModeHorizontalPosition(75);
+//            posPrinter.setPageModeVerticalPosition(45);
+//            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_PAGE_MODE);
+//
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(13)+EscapeSequence.getString(15) + (cnt+ 1)+ "統一速達股份有限公司\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(28);
+//            posPrinter.setPageModeVerticalPosition(95);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(16) + (cnt + 1 )+ "電子發票證明聯\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(52);
+//            posPrinter.setPageModeVerticalPosition(145);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)  + EscapeSequence.getString(16)+ "period" + "月 \r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(48);
+//            posPrinter.setPageModeVerticalPosition(205);
+//
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(2) + EscapeSequence.getString(27)+ EscapeSequence.getString(19) + "123456789"+ "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(240);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "yyyy-MM-dd HH:mm:ss" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(270);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "隨機碼 " + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(220);
+//            posPrinter.setPageModeVerticalPosition(270);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "voiceMoney" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(300);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "賣方 " + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(220);
+//            posPrinter.setPageModeVerticalPosition(300);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "買方:" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(35);
+//            posPrinter.setPageModeVerticalPosition(320);
+//            int symbology = POSPrinterConst.PTR_BCS_Code39;
+//            int height = 50;
+//            int width = 1;
+//            int alignment = POSPrinterConst.PTR_BC_CENTER;
+//            int textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
+//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT,"1234567890", symbology, height, width, alignment,
+//                    textPosition);
+//
+//            posPrinter.setPageModeHorizontalPosition(20);
+//            posPrinter.setPageModeVerticalPosition(550);
+//            symbology = POSPrinterConst.PTR_BCS_QRCODE;
+//            height = 0;
+//            width = 3;
+//            alignment = POSPrinterConst.PTR_BC_LEFT;
+//            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
+//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
+//                    textPosition);
+//
+//            posPrinter.setPageModeHorizontalPosition(200);
+//            posPrinter.setPageModeVerticalPosition(550);
+//            symbology = POSPrinterConst.PTR_BCS_QRCODE;
+//            height = 0;
+//            width = 3;
+//            alignment = POSPrinterConst.PTR_BC_LEFT;
+//            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
+//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
+//                    textPosition);
+//
+//
+//            posPrinter.setPageModeHorizontalPosition(0);
+//            posPrinter.setPageModeVerticalPosition(570);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "品名:配送費  X " + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(250);
+//            posPrinter.setPageModeVerticalPosition(570);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(600);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "銷售額:" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(220);
+//            posPrinter.setPageModeVerticalPosition(600);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) +"稅額:" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(630);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "稅額:" + "\r\n");
+//
+//            posPrinter.setPageModeHorizontalPosition(10);
+//            posPrinter.setPageModeVerticalPosition(660);
+//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "換開發票請於7日內攜正本更換\r\n");
+//
+//            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_NORMAL);
+//
+//            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_NORMAL);
+//        } catch (Exception e) {
+//
+//        }
+//
+//    }
 
     /**Abrir la siguiente vista*/
     public boolean printerOpen(int portType, String logicalName, String address, boolean isAsyncMode) {

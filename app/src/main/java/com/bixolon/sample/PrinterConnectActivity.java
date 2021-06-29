@@ -38,11 +38,8 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
 
     private int portType = BXLConfigLoader.DEVICE_BUS_BLUETOOTH;
     private String logicalName = "";
+    private String SPP_R200III = "SPP-R200III";
     private String address = "";
-
-    private LinearLayout layoutModel;
-    private LinearLayout layoutIPAddress;
-
     private ListView listView;
     private CheckBox checkBoxAsyncMode;
 
@@ -54,8 +51,6 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_printer_connect);
-
-        layoutModel = findViewById(R.id.LinearLayout2);
 
         checkBoxAsyncMode = findViewById(R.id.checkBoxAsyncMode);
 
