@@ -37,14 +37,10 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
     private ArrayAdapter<CharSequence> arrayAdapter;
 
     private int portType = BXLConfigLoader.DEVICE_BUS_BLUETOOTH;
-    private String logicalName = "";
     private String SPP_R200III = "SPP-R200III";
     private String address = "";
     private ListView listView;
     private CheckBox checkBoxAsyncMode;
-
-    private Button btnPrinterOpen;
-
     private ProgressBar mProgressLarge;
 
     @Override
@@ -66,22 +62,6 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
 
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setOnItemClickListener(this);
-
-        Spinner modelList = findViewById(R.id.spinnerModelList);
-
-        /**Lista de modelos de impresora*/
-        ArrayAdapter modelAdapter = ArrayAdapter.createFromResource(this, R.array.modelList, android.R.layout.simple_spinner_dropdown_item);
-        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        modelList.setAdapter(modelAdapter);
-        modelList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                logicalName = (String) parent.getItemAtPosition(position);
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -117,7 +97,7 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (MainActivity.getPrinterInstance().printerOpen(portType, logicalName, address, checkBoxAsyncMode.isChecked())) {
+                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
                     finish();
                 } else {
                     mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
