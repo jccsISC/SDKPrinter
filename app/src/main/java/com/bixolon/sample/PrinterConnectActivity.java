@@ -42,6 +42,7 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
     private ListView listView;
     private CheckBox checkBoxAsyncMode;
     private ProgressBar mProgressLarge;
+    private TextView txtModelo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,10 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
 
         mProgressLarge = findViewById(R.id.progressBar1);
         mProgressLarge.setVisibility(ProgressBar.GONE);
+
+        txtModelo = findViewById(R.id.txtModel);
+
+        txtModelo.setText(getString(R.string.txt_modelo, SPP_R200III));
 
         /**Mostramos la lista en cuanto abrimos la app*/
         setPairedDevices();
