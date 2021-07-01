@@ -4,20 +4,16 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.bixolon.commonlib.BXLCommonConst;
-import com.bixolon.commonlib.log.LogService;
 import com.bixolon.sample.PrinterControl.BixolonPrinter;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     private static BixolonPrinter bxlPrinter = null;

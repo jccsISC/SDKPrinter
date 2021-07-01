@@ -11,7 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,6 @@ import com.bixolon.sample.PrinterControl.BixolonPrinter;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.text.NumberFormat;
 
 public class EtcFragment extends Fragment implements View.OnClickListener {
     private int REQUEST_CODE_ACTION_PICK = 1;
