@@ -73,24 +73,27 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+        /**Inicializa bxlPrinter es global*/
         bxlPrinter = new BixolonPrinter(getApplicationContext());
 
         Thread.setDefaultUncaughtExceptionHandler(new AppUncaughtExceptionHandler());
 
         startConnectionActivity();
 
-        String strLogPath = "";
-        File[] mediaDirs = MainActivity.this.getExternalMediaDirs();
-        if(mediaDirs != null && mediaDirs.length>0){
-            strLogPath = mediaDirs[0].getPath();
-        }
-        if(strLogPath.length()>0){
-            File dir = new File(strLogPath);
-            if(!dir.exists()){
-                dir.mkdir();
-            }
-            LogService.InitDebugLog(true, true, BXLCommonConst._LOG_LEVEL_HIGH, 128, 128, (1024*1024)*10, 0, strLogPath, "bixolon.log");
-        }
+
+        /**Crea un directorio*/
+//        String strLogPath = "";
+//        File[] mediaDirs = MainActivity.this.getExternalMediaDirs();
+//        if(mediaDirs != null && mediaDirs.length>0){
+//            strLogPath = mediaDirs[0].getPath();
+//        }
+//        if(strLogPath.length()>0){
+//            File dir = new File(strLogPath);
+//            if(!dir.exists()){
+//                dir.mkdir();
+//            }
+//            LogService.InitDebugLog(true, true, BXLCommonConst._LOG_LEVEL_HIGH, 128, 128, (1024*1024)*10, 0, strLogPath, "bixolon.log");
+//        }
 
     }
 

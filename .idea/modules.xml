@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BixolonSample.iml" filepath="$PROJECT_DIR$/.idea/modules/BixolonSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BixolonSample.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BixolonSample.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SDKPrinter.iml" filepath="$PROJECT_DIR$/.idea/modules/SDKPrinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SDKPrinter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SDKPrinter.app.iml" />
     </modules>
   </component>
 </project>

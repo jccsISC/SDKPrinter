@@ -207,10 +207,10 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                     break;
                 }
 
-                if (strPath.length() == 0) {
-                    Toast.makeText(getContext(), "Invalid file path!!", Toast.LENGTH_SHORT).show();
-                    break;
-                }
+//                if (strPath.length() == 0) {
+//                    Toast.makeText(getContext(), "Invalid file path!!", Toast.LENGTH_SHORT).show();
+//                    break;
+//                }
 
                 switch (radioGroupPrintingType.getCheckedRadioButtonId()) {
                     case R.id.radioImage:

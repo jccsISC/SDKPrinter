@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.bixolon.sample"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -35,10 +35,12 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     implementation 'com.android.support:appcompat-v7:26.+'
     implementation 'com.android.support:support-v4:26.+'
     implementation 'com.android.support:design:26.+'
     testCompile 'junit:junit:4.12'
     implementation files('libs\\bixolon_printer_V2.1.1.jar')
     implementation files('libs\\libcommon_V1.0.9.jar')
+
 }

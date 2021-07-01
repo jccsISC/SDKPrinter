@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,6 +50,15 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_printer_connect);
 
+
+        Button mBottton = findViewById(R.id.button);
+        mBottton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                showBottomSheetDialog();
+            }
+        });
+
         checkBoxAsyncMode = findViewById(R.id.checkBoxAsyncMode);
 
         mProgressLarge = findViewById(R.id.progressBar1);
@@ -61,10 +71,12 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         /**Mostramos la lista en cuanto abrimos la app*/
         setPairedDevices();
 
+        /**Llenamos este array de los dispositivos que obtuvimos*/
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice, bondedDevices);
         listView = findViewById(R.id.listViewPairedDevices);
         listView.setAdapter(arrayAdapter);
 
+        /**Le damos ese radioButton*/
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setOnItemClickListener(this);
 
@@ -107,6 +119,11 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
                 } else {
                     mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
                 }
+//                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+//                    finish();
+//                } else {
+//                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
+//                }
             }
         }).start();
 
@@ -147,4 +164,21 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
             return false;
         }
     });
+
+    private void showBottomSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_layout);
+
+        LinearLayout copy = bottomSheetDialog.findViewById(R.id.copyLinearLayout);
+        LinearLayout share = bottomSheetDialog.findViewById(R.id.shareLinearLayout);
+        LinearLayout upload = bottomSheetDialog.findViewById(R.id.uploadLinearLaySout);
+        LinearLayout download = bottomSheetDialog.findViewById(R.id.download);
+        LinearLayout delete = bottomSheetDialog.findViewById(R.id.delete);
+
+
+
+        bottomSheetDialog.show();
+    }
+
 }
