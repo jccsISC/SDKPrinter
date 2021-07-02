@@ -58,8 +58,7 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
     private TextView txtModelo;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = FragmentBlank2Binding.inflate(getLayoutInflater());
         return mBinding.getRoot();
     }
@@ -123,28 +122,33 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
         String device = ((TextView) view).getText().toString();
         /**Guardamos el address*/
         address = device.substring(device.indexOf(DEVICE_ADDRESS_START) + DEVICE_ADDRESS_START.length(), device.indexOf(DEVICE_ADDRESS_END));
 
         mHandler.obtainMessage(0).sendToTarget();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-                    getActivity().finish();
-                } else {
-                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
-                }
+        if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+//            goTOFragment3(view);
+            goTOImageFragment(view);
+        }
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
 //                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-//                    finish();
+////                    getActivity().finish();
 //                } else {
 //                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
 //                }
-            }
-        }).start();
+////                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+////                    finish();
+////                } else {
+////                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
+////                }
+//            }
+//        }).start();
 
         Toast.makeText(getContext(), "Click" + address, Toast.LENGTH_SHORT).show();
     }
@@ -183,4 +187,12 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
             return false;
         }
     });
+
+//    public void goTOFragment3(View view) {
+//        Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment3);
+//    }
+
+    public void goTOImageFragment(View view) {
+        Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_imageFragment);
+    }
 }

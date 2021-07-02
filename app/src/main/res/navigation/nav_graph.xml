@@ -20,12 +20,12 @@
         android:label="fragment_blank2"
         tools:layout="@layout/fragment_blank2" >
         <action
-            android:id="@+id/action_blankFragment2_to_blankFragment3"
-            app:destination="@id/blankFragment3" />
+            android:id="@+id/action_blankFragment2_to_imageFragment"
+            app:destination="@id/imageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/blankFragment3"
-        android:name="com.bixolon.sample.bottomsheet.fragments.BlankFragment3"
-        android:label="fragment_blank3"
-        tools:layout="@layout/fragment_blank3" />
+        android:id="@+id/imageFragment"
+        tools:layout="@layout/fragment_image"
+        android:name="com.bixolon.sample.ImageFragment"
+        android:label="ImageFragment" />
 </navigation>

@@ -1,231 +1,289 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp" >
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/textViewPrintingType"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Printing Type : "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
 
-        <RadioGroup
-            android:id="@+id/radioGroupPrint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium" >
-
-            <RadioButton
-                android:id="@+id/radioImage"
+            <TextView
+                android:id="@+id/textViewPrintingType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Image" />
-        </RadioGroup>
-    </LinearLayout>
+                android:text="Printing Type : "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/textViewSelectFile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/LinearLayout1"
-        android:text="File Path : " />
+            <RadioGroup
+                android:id="@+id/radioGroupPrint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium">
 
-    <TextView
-        android:id="@+id/textViewFilePath"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/buttonFileSelect"
-        android:layout_below="@+id/textViewSelectFile" />
-
-    <Button
-        android:id="@+id/buttonFileSelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Select File"
-        android:layout_below="@+id/textViewFilePath" />
-
-    <LinearLayout
-        android:id="@+id/LinearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonFileSelect" >
+                <RadioButton
+                    android:id="@+id/radioImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Image" />
+            </RadioGroup>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textViewWidth"
+            android:id="@+id/textViewSelectFile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Width : " />
+            android:layout_below="@+id/LinearLayout1"
+            android:layout_alignParentLeft="true"
+            android:text="File Path : "
+            android:visibility="gone" />
 
-        <EditText
-            android:id="@+id/editTextWidth"
+        <TextView
+            android:id="@+id/textViewFilePath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:focusable="true"
-            android:focusableInTouchMode="true" />
+            android:layout_below="@+id/textViewSelectFile"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/buttonFileSelect"
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/buttonGetWidth"
+            android:id="@+id/buttonFileSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewFilePath"
             android:layout_alignParentRight="true"
-            android:text="Get Max Width" />
-    </LinearLayout>
+            android:text="Select File"
+            android:visibility="gone" />
 
-    <LinearLayout
-        android:id="@+id/LinearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout3" >
+        <LinearLayout
+            android:id="@+id/LinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonFileSelect"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Width : " />
+
+            <EditText
+                android:id="@+id/editTextWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/buttonGetWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Get Max Width" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout3"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewAlignment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alignment : " />
+
+            <Spinner
+                android:id="@+id/imageAlignment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textViewAlignment"
+            android:id="@+id/textViewBrightness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alignment : " />
+            android:layout_below="@+id/LinearLayout4"
+            android:text="Brightness : "
+            android:visibility="gone" />
 
-        <Spinner
-            android:id="@+id/imageAlignment"
+        <SeekBar
+            android:id="@+id/seekBarBrightness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewBrightness"
+            android:layout_alignParentLeft="true"
+            android:max="100"
+            android:progress="50"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBarBrightness"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewStartPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start page : " />
+
+            <EditText
+                android:id="@+id/editTextStartPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout5"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewEndPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Page : " />
+
+            <EditText
+                android:id="@+id/editTextEndPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout6"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewDither"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dither : " />
+
+            <Spinner
+                android:id="@+id/imageDither"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout7"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewCompress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Compress : " />
+
+            <Spinner
+                android:id="@+id/imageCompress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewDeviceMessages"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </Spinner>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LinearLayout8"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:visibility="gone" />
+    </RelativeLayout>
 
-    </LinearLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtBthStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.934"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/to_printer" />
 
     <TextView
-        android:id="@+id/textViewBrightness"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout4"
-        android:text="Brightness : " />
-
-    <SeekBar
-        android:id="@+id/seekBarBrightness"
+        android:id="@+id/txtBthStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewBrightness"
-        android:max="100"
-        android:progress="50" />
-
-    <LinearLayout
-        android:id="@+id/LinearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBarBrightness" >
-
-        <TextView
-            android:id="@+id/textViewStartPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start page : " />
-
-        <EditText
-            android:id="@+id/editTextStartPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:focusable="true"
-            android:focusableInTouchMode="true" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout5" >
-
-        <TextView
-            android:id="@+id/textViewEndPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="End Page : " />
-
-        <EditText
-            android:id="@+id/editTextEndPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:focusable="true"
-            android:focusableInTouchMode="true" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout6" >
-
-        <TextView
-            android:id="@+id/textViewDither"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dither : " />
-
-        <Spinner
-            android:id="@+id/imageDither"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </Spinner>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout7" >
-
-        <TextView
-            android:id="@+id/textViewCompress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Compress : " />
-
-        <Spinner
-            android:id="@+id/imageCompress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </Spinner>
-
-    </LinearLayout>
+        android:layout_below="@+id/lottieAnimationView"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Imprimir ticket"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPrint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonPrint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/LinearLayout8"
-        android:layout_marginTop="15dp"
-        android:text="Print" />
+        android:layout_below="@+id/txtBthStatus"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:text="Print"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textViewDeviceMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/buttonPrint" />
-</RelativeLayout>

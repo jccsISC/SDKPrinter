@@ -5,29 +5,41 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAccent"
-        tools:context=".bottomsheet.fragments.BlankFragment2">
+        android:layout_height="wrap_content"
+        tools:context=".ui.fragments.Fragment3">
 
-        <!-- TODO: Update blank fragment layout -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtBthStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/to_printer" />
+
         <TextView
-            android:id="@+id/btnFragment3"
+            android:id="@+id/txtBthStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="24dp"
-            android:text="FRAGMENT 3"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="Imprimir ticket"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnPrint3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/btnPrint3"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginBottom="16dp"
-            android:text="Context"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:text="Imprimir"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
