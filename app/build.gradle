@@ -43,4 +43,9 @@ dependencies {
     implementation files('libs/bixolon_printer_V2.1.1.jar')
     implementation files('libs/libcommon_V1.0.9.jar')
 
+    //navigation
+    implementation "androidx.navigation:navigation-fragment:2.3.5"
+    implementation "androidx.navigation:navigation-ui:2.3.5"
+    implementation 'com.airbnb.android:lottie:3.7.0'
+
 }

@@ -1,4 +1,4 @@
-package com.bixolon.sample;
+package com.bixolon.sample.bottomsheet.fragments;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -6,9 +6,17 @@ import android.bluetooth.BluetoothDevice;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,13 +26,18 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import com.bixolon.sample.bottomsheet.ActionBottomDialogFragment;
+
+import com.bixolon.sample.MainActivity;
+import com.bixolon.sample.R;
+import com.bixolon.sample.databinding.FragmentBlank2Binding;
 import com.bxl.config.editor.BXLConfigLoader;
+
 import java.util.ArrayList;
 import java.util.Set;
 
-public class PrinterConnectActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickListener{
+
+    private FragmentBlank2Binding mBinding;
 
     private final int REQUEST_PERMISSION = 0;
     private final String DEVICE_ADDRESS_START = " (";
@@ -45,24 +58,22 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
     private TextView txtModelo;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_printer_connect);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        mBinding = FragmentBlank2Binding.inflate(getLayoutInflater());
+        return mBinding.getRoot();
+    }
 
-        Button mBottton = findViewById(R.id.button);
-        mBottton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showBottomSheet();
-            }
-        });
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        checkBoxAsyncMode = findViewById(R.id.checkBoxAsyncMode);
+        checkBoxAsyncMode = view.findViewById(R.id.checkBoxAsyncMode);
 
-        mProgressLarge = findViewById(R.id.progressBar1);
+        mProgressLarge = view.findViewById(R.id.progressBar1);
         mProgressLarge.setVisibility(ProgressBar.GONE);
 
-        txtModelo = findViewById(R.id.txtModel);
+        txtModelo = view.findViewById(R.id.txtModel);
 
         txtModelo.setText(getString(R.string.txt_modelo, SPP_R200III));
 
@@ -70,8 +81,8 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         setPairedDevices();
 
         /**Llenamos este array de los dispositivos que obtuvimos*/
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice, bondedDevices);
-        listView = findViewById(R.id.listViewPairedDevices);
+        arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_single_choice, bondedDevices);
+        listView = view.findViewById(R.id.listViewPairedDevices);
         listView.setAdapter(arrayAdapter);
 
         /**Le damos ese radioButton*/
@@ -79,12 +90,19 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         listView.setOnItemClickListener(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 if (!shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
                     requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION);
                 }
             }
         }
+
+//        mBinding.btnFragment3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(v).navigate(R.id.action_blankFragment2_to_blankFragment3);
+//            }
+//        });
     }
 
     /**
@@ -104,7 +122,8 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
         }
     }
 
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String device = ((TextView) view).getText().toString();
         /**Guardamos el address*/
         address = device.substring(device.indexOf(DEVICE_ADDRESS_START) + DEVICE_ADDRESS_START.length(), device.indexOf(DEVICE_ADDRESS_END));
@@ -115,7 +134,7 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
             @Override
             public void run() {
                 if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-                    finish();
+                    getActivity().finish();
                 } else {
                     mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
                 }
@@ -127,8 +146,7 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
             }
         }).start();
 
-        Toast.makeText(this, "Click" + address, Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(getContext(), "Click" + address, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -138,7 +156,7 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
             case REQUEST_PERMISSION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 } else {
-                    Toast.makeText(getApplicationContext(), "permission denied", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "permission denied", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
@@ -151,24 +169,18 @@ public class PrinterConnectActivity extends AppCompatActivity implements Adapter
             switch (msg.what) {
                 case 0:
                     mProgressLarge.setVisibility(ProgressBar.VISIBLE);
-                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                     break;
                 case 1:
                     String data = (String) msg.obj;
                     if (data != null && data.length() > 0) {
-                        Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), data, Toast.LENGTH_LONG).show();
                     }
                     mProgressLarge.setVisibility(ProgressBar.GONE);
-                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                     break;
             }
             return false;
         }
     });
-
-    public void showBottomSheet() {
-        ActionBottomDialogFragment addPhotoBottomDialogFragment = ActionBottomDialogFragment.newInstance();
-        addPhotoBottomDialogFragment.show(getSupportFragmentManager(), ActionBottomDialogFragment.TAG);
-    }
-
 }

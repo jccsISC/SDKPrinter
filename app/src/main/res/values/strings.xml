@@ -11,4 +11,8 @@
     <string name="ETC">Etc.</string>
     <string name="Personalized"><b>23/06/20241</b> \n<i><big>Texto cursiva</big></i> \n<u><small>Texto pequeño</small></u>\n<sup>Subindice</sup> <br></br>  </string>
     <string name="txt_modelo">Modelo: %s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bluetooth_desactivado">BLuetooth Desactivado</string>
+    <string name="activar_bluetooth">Activar BLuetooth</string>
 </resources>

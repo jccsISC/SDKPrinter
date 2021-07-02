@@ -7,4 +7,5 @@
     <dimen name="dimen_60">60dp</dimen>
     <dimen name="width_img">25dp</dimen>
     <dimen name="margin_end">15dp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
 </resources>
