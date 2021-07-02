@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Message;
@@ -19,8 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,29 +32,27 @@ import com.bixolon.sample.databinding.FragmentBlank2Binding;
 import com.bxl.config.editor.BXLConfigLoader;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickListener{
+public class BlankFragment2 extends Fragment implements ItemListener {
 
     private FragmentBlank2Binding mBinding;
 
     private final int REQUEST_PERMISSION = 0;
-    private final String DEVICE_ADDRESS_START = " (";
-    private final String DEVICE_ADDRESS_END = ")";
-
-    private final ArrayList<CharSequence> bondedDevices = new ArrayList<>();
-    /**
-     * array para dispositivos
-     */
-    private ArrayAdapter<CharSequence> arrayAdapter;
 
     private int portType = BXLConfigLoader.DEVICE_BUS_BLUETOOTH;
     private String SPP_R200III = "SPP-R200III";
     private String address = "";
-    private ListView listView;
+
     private CheckBox checkBoxAsyncMode;
     private ProgressBar mProgressLarge;
+
     private TextView txtModelo;
+
+    private RecyclerView rvDevice;
+    RecyclerAdapter adapterDevice;
+    private ArrayList<BluetoothDevice> listDevice = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,20 +70,16 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
         mProgressLarge.setVisibility(ProgressBar.GONE);
 
         txtModelo = view.findViewById(R.id.txtModel);
-
         txtModelo.setText(getString(R.string.txt_modelo, SPP_R200III));
+
 
         /**Mostramos la lista en cuanto abrimos la app*/
         setPairedDevices();
 
         /**Llenamos este array de los dispositivos que obtuvimos*/
-        arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_single_choice, bondedDevices);
-        listView = view.findViewById(R.id.listViewPairedDevices);
-        listView.setAdapter(arrayAdapter);
-
-        /**Le damos ese radioButton*/
-        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        listView.setOnItemClickListener(this);
+        rvDevice = view.findViewById(R.id.rvPairedDevices);
+        adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device, this);
+        rvDevice.setAdapter(adapterDevice);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -95,63 +88,27 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
                 }
             }
         }
-
-//        mBinding.btnFragment3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController(v).navigate(R.id.action_blankFragment2_to_blankFragment3);
-//            }
-//        });
     }
 
     /**
      * Jalamos los dispositivos vinculados que tiene el dispositivo
      */
     private void setPairedDevices() {
-        bondedDevices.clear();
+        listDevice.clear();
+
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> bondedDeviceSet = bluetoothAdapter.getBondedDevices();
 
         for (BluetoothDevice device : bondedDeviceSet) {
-            bondedDevices.add(device.getName() + DEVICE_ADDRESS_START + device.getAddress() + DEVICE_ADDRESS_END);
+            listDevice.add(device);
         }
 
-        if (arrayAdapter != null) {
-            arrayAdapter.notifyDataSetChanged();
+        if (adapterDevice != null) {
+            adapterDevice.notifyDataSetChanged();
         }
+
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-        String device = ((TextView) view).getText().toString();
-        /**Guardamos el address*/
-        address = device.substring(device.indexOf(DEVICE_ADDRESS_START) + DEVICE_ADDRESS_START.length(), device.indexOf(DEVICE_ADDRESS_END));
-
-        mHandler.obtainMessage(0).sendToTarget();
-
-        if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-//            goTOFragment3(view);
-            goTOImageFragment(view);
-        }
-
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-////                    getActivity().finish();
-//                } else {
-//                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
-//                }
-////                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-////                    finish();
-////                } else {
-////                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
-////                }
-//            }
-//        }).start();
-
-        Toast.makeText(getContext(), "Click" + address, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -194,5 +151,40 @@ public class BlankFragment2 extends Fragment implements AdapterView.OnItemClickL
 
     public void goTOImageFragment(View view) {
         Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_imageFragment);
+    }
+
+    @Override
+    public void onCLickListenerInfo(BluetoothDevice device, int position) {
+        Toast.makeText(getContext(), "Click "+device.getName() + "Address: "+device.getAddress(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCLickListenerCard(BluetoothDevice device, int position) {
+        /**Guardamos el address*/
+        address = device.getAddress();
+        mHandler.obtainMessage(0).sendToTarget();
+
+        if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+//            goTOFragment3(view);
+            goTOImageFragment(requireView());
+        }
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+////                    getActivity().finish();
+//                } else {
+//                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
+//                }
+////                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+////                    finish();
+////                } else {
+////                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
+////                }
+//            }
+//        }).start();
+
+        Toast.makeText(getContext(), "Click" + address, Toast.LENGTH_SHORT).show();
     }
 }
