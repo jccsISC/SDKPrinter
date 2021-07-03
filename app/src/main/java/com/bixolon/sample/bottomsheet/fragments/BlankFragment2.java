@@ -1,8 +1,10 @@
 package com.bixolon.sample.bottomsheet.fragments;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,14 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +42,10 @@ import com.bxl.config.editor.BXLConfigLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+import static com.bixolon.sample.bottomsheet.ActionBottomDialogFragment.m_bluetoothAdapter;
+import static com.bixolon.sample.bottomsheet.ActionBottomDialogFragment.m_paredDevices;
 
 public class BlankFragment2 extends Fragment implements ItemListener {
 
@@ -81,6 +93,14 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device, this);
         rvDevice.setAdapter(adapterDevice);
 
+        mBinding.btnOpenConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+                startActivity(i);
+            }
+        });
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 if (!shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)) {
@@ -96,11 +116,16 @@ public class BlankFragment2 extends Fragment implements ItemListener {
     private void setPairedDevices() {
         listDevice.clear();
 
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        Set<BluetoothDevice> bondedDeviceSet = bluetoothAdapter.getBondedDevices();
+        m_paredDevices = m_bluetoothAdapter.getBondedDevices();
 
-        for (BluetoothDevice device : bondedDeviceSet) {
-            listDevice.add(device);
+        if (m_paredDevices != null) {
+
+            for (BluetoothDevice device : m_paredDevices) {
+                if (device.getBluetoothClass().getMajorDeviceClass() == 1536) {
+                    listDevice.add(device);
+                }
+            }
+
         }
 
         if (adapterDevice != null) {
@@ -155,7 +180,8 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
     @Override
     public void onCLickListenerInfo(BluetoothDevice device, int position) {
-        Toast.makeText(getContext(), "Click "+device.getName() + "Address: "+device.getAddress(), Toast.LENGTH_SHORT).show();
+
+        buttonPopupwindow(requireView(), device.getName(), device.getAddress());
     }
 
     @Override
@@ -173,18 +199,38 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 //            @Override
 //            public void run() {
 //                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-////                    getActivity().finish();
+//                    goTOImageFragment(requireView());
 //                } else {
 //                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
 //                }
-////                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-////                    finish();
-////                } else {
-////                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
-////                }
 //            }
 //        }).start();
 
-        Toast.makeText(getContext(), "Click" + address, Toast.LENGTH_SHORT).show();
     }
+
+
+    public void buttonPopupwindow(View view, String name, String address){
+        LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
+        View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail, null);
+        final PopupWindow popupWindow = new PopupWindow(viewPopupwindow, 900, 500, true);
+        popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+
+        TextView txtName;
+        TextView txtAddress;
+
+        txtName = viewPopupwindow.findViewById(R.id.txtDeviceName);
+        txtAddress = viewPopupwindow.findViewById(R.id.txtDeviceMac);
+
+        txtName.setText(name);
+        txtAddress.setText(address);
+
+        viewPopupwindow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+    }
+
 }
