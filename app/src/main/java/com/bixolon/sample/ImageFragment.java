@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -30,6 +31,8 @@ import android.widget.Toast;
 public class ImageFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener {
     private String PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
     private int REQUEST_CODE_ACTION_PICK = 1;
+
+    ProgressBar progressBar;
 
     private LinearLayout layoutStartPage;
     private LinearLayout layoutEndPage;
@@ -68,6 +71,8 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_image, container, false);
+
+        progressBar = view.findViewById(R.id.progressPrinter);
 
         //todo inflando vista para imprimir bitmap
         View inflatedFrame = getLayoutInflater().inflate(R.layout.ticket, null);
@@ -207,10 +212,13 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                     case R.id.radioImage:
 //                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither);
 //                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither, spinnerCompress);
+
                         MainActivity.getPrinterInstance().printImage(myBitmap, width, alignment, brightness, spinnerDither, spinnerCompress);
 
                         break;
                 }
+
+
         }
     }
 

@@ -190,6 +190,7 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         address = device.getAddress();
         mHandler.obtainMessage(0).sendToTarget();
 
+        mProgressLarge.setVisibility(View.VISIBLE);
         if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
 //            goTOFragment3(view);
             goTOImageFragment(requireView());
