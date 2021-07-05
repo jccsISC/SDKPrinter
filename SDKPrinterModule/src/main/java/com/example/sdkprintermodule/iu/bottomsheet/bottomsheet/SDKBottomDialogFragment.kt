@@ -8,46 +8,55 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.sdkprintermodule.R
-import com.example.sdkprintermodule.databinding.BottomSheetDialogLayoutBinding
+import com.example.sdkprintermodule.databinding.SdkBottomDialogFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ActionBottomDialogFragment : BottomSheetDialogFragment() {
+class SDKBottomDialogFragment : BottomSheetDialogFragment() {
 
-    lateinit var mBinding: BottomSheetDialogLayoutBinding
+    lateinit var mBinding: SdkBottomDialogFragmentBinding
 
     companion object {
-        //        var bxlPrinter: BixolonPrinter? = null
+        /**Instancia blobarl bxlPrinter*/
+//        var bxlPrinter: BixolonPrinter? = null
+
         val EXTRA_ADDRESS = "Device_address"
-        const val TAG = "CustomBottomSheetDialogFragment"
+        const val TAG = "SDKBottomDialogFragment"
         var m_bluetoothAdapter: BluetoothAdapter? = null
         lateinit var m_paredDevices: Set<BluetoothDevice>
-        val REQUEST_ENABLE_BLUETOOTH = 1
+        const val REQUEST_ENABLE_BLUETOOTH = 1
+
+        fun newInstance(): SDKBottomDialogFragment {
+            return SDKBottomDialogFragment()
+        }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = BottomSheetDialogLayoutBinding.inflate(layoutInflater)
+        mBinding = SdkBottomDialogFragmentBinding.inflate(layoutInflater)
         return mBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        /**Inicializa bxlPrinter es global*/
 //        bxlPrinter = BixolonPrinter(context)
 
-        mBinding.apply {
-            btnClose.setOnClickListener { dismiss() }
-        }
+//        Thread.setDefaultUncaughtExceptionHandler(AppUncaughtExceptionHandler())
+        mBinding.btnClose.setOnClickListener { dismiss() }
     }
+
 
     override fun onResume() {
         super.onResume()
 
-        mBinding.fragmentContainer.apply {
-            if (!m_bluetoothAdapter!!.isEnabled) {
+        mBinding.navHotFragment.apply {
+
+            if (m_bluetoothAdapter != null && !m_bluetoothAdapter!!.isEnabled) {
                 when (findNavController().currentDestination!!.label) {
                     FragmentLabelEnum.CONNECT_FRAGMENT.titleLabel -> {
                         findNavController()
@@ -81,8 +90,16 @@ class ActionBottomDialogFragment : BottomSheetDialogFragment() {
 //        bxlPrinter?.printerClose()
     }
 
-}
+//    class AppUncaughtExceptionHandler : Thread.UncaughtExceptionHandler {
+//        override fun uncaughtException(thread: Thread, ex: Throwable) {
+//            ex.printStackTrace()
+//            Process.killProcess(Process.myPid())
+//            exitProcess(10)
+//        }
+//    }
 
+}
+//
 //fun BixolonPrinter.getPrinterInstance(): BixolonPrinter? {
 //    return bxlPrinter
 //}

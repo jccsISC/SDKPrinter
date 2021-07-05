@@ -4,8 +4,8 @@ import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import com.bancoazteca.corresponsal.cacommonutils.component.showToast
 import com.example.sdkprintermodule.R
-import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.ActionBottomDialogFragment.Companion.REQUEST_ENABLE_BLUETOOTH
-import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.ActionBottomDialogFragment.Companion.m_bluetoothAdapter
+import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment.Companion.REQUEST_ENABLE_BLUETOOTH
+import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment.Companion.m_bluetoothAdapter
 
 
 fun ActiveBthFragment.initElements() {

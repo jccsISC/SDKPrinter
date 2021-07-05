@@ -38,12 +38,7 @@ public class ActionBottomDialogFragment extends BottomSheetDialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mBinding.btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        mBinding.btnClose.setOnClickListener(v -> dismiss());
     }
 
     @Override

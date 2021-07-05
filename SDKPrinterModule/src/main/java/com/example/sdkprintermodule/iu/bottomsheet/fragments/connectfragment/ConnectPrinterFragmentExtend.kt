@@ -10,8 +10,8 @@ import com.bancoazteca.corresponsal.cacommonutils.component.dialogs.popupwindow.
 import com.bancoazteca.corresponsal.cacommonutils.component.showToast
 import com.example.sdkprintermodule.R
 import com.example.sdkprintermodule.databinding.CardItemDeviceDetailBinding
-import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.ActionBottomDialogFragment.Companion.m_bluetoothAdapter
-import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.ActionBottomDialogFragment.Companion.m_paredDevices
+import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment.Companion.m_bluetoothAdapter
+import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment.Companion.m_paredDevices
 import com.example.sdkprintermodule.iu.bottomsheet.fragments.connectfragment.adapter.ListDeviceAdapter
 
 fun ConnectPrinterFragment.initElements() {

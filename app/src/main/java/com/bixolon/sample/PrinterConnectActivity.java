@@ -1,13 +1,11 @@
 package com.bixolon.sample;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.bixolon.sample.bottomsheet.ActionBottomDialogFragment;
 import com.bixolon.sample.databinding.ActivityPrinterConnectBinding;
+import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment;
 
 public class PrinterConnectActivity extends AppCompatActivity {
 
@@ -29,6 +27,7 @@ public class PrinterConnectActivity extends AppCompatActivity {
     }
 
     public void openSDKPrinter() {
-        Toast.makeText(this, "Éste botón abrirá el SDK ya con kotlin", Toast.LENGTH_SHORT).show();
+        SDKBottomDialogFragment openBottomSheetSDK = SDKBottomDialogFragment.Companion.newInstance();
+        openBottomSheetSDK.show(getSupportFragmentManager(), SDKBottomDialogFragment.TAG);
     }
 }

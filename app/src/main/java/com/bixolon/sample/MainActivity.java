@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.bixolon.sample.PrinterControl.BixolonPrinter;
 
 public class MainActivity extends AppCompatActivity {
+    /**Instancia blobarl bxlPrinter*/
     private static BixolonPrinter bxlPrinter = null;
 
     private static Fragment currentFragment;
