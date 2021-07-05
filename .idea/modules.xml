@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SDKPrinter.iml" filepath="$PROJECT_DIR$/.idea/modules/SDKPrinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SDKPrinterModule/SDKPrinter.SDKPrinterModule.iml" filepath="$PROJECT_DIR$/.idea/modules/SDKPrinterModule/SDKPrinter.SDKPrinterModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SDKPrinter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SDKPrinter.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cacommonutils/SDKPrinter.cacommonutils.iml" filepath="$PROJECT_DIR$/.idea/modules/cacommonutils/SDKPrinter.cacommonutils.iml" />
     </modules>
   </component>
 </project>

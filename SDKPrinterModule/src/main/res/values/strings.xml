@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bluetooth_desactivado">BLuetooth Desactivado</string>
+    <string name="activar_bluetooth">Activar BLuetooth</string>
+    <string name="connect_your_printer">Conecte su impresora</string>
+    <string name="add_bt">Añadir</string>
+</resources>

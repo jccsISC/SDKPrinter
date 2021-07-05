@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="string" name="label"/>
+    <color name="baz_string_title">#1dd69f</color>
+    <color name="bg_btn_gray">#e1e5ef</color>
+    <color name="black">#000000</color>
+    <color name="blue">#072553</color>
+    <color name="color_button_aceptar">#1dd69f</color>
+    <color name="color_button_cancelar">#A2C541</color>
+    <color name="color_message_generic">#7C7C7C</color>
+    <color name="color_message_generic_warning">#363636</color>
+    <color name="dark_blue_grey">#192941</color>
+    <color name="grayLight">#F5F5F5</color>
+    <color name="grayOxford">#363636</color>
+    <color name="grayTimerFinish">#75787b</color>
+    <color name="greenStrong">#0C6D48</color>
+    <color name="primaryColor">#FAFAFA</color>
+    <color name="primaryDarkColor">#C7C7C7</color>
+    <color name="primaryLightColor">#ffffff</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="redError">#AF272F</color>
+    <color name="secondaryColor">#80C913</color>
+    <color name="secondaryDarkColor">#6F9401</color>
+    <color name="secondaryLightColor">#D5F872</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="title_dialog">#80C913</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="elevation_card">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_14">14dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_bottom_20">20dp</dimen>
+    <dimen name="margin_top_10">10dp</dimen>
+    <dimen name="margin_top_50">50dp</dimen>
+    <dimen name="margin_vertical_20">20dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_14">14dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_18">18dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_26">26sp</dimen>
+    <dimen name="text_size_45">45sp</dimen>
+    <dimen name="width_card">143dp</dimen>
+    <dimen name="width_card_circle">50dp</dimen>
+    <dimen name="width_img">30dp</dimen>
+    <dimen name="width_linear">90dp</dimen>
+    <dimen name="width_svg">20dp</dimen>
+    <string name="aceptar">Aceptar</string>
+    <string name="c_digo_de_confirmaci_n">Código de confirmación</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cargando">Cargando...</string>
+    <string name="coinid">Código de confirmación caducado</string>
+    <string name="continuar">Continuar</string>
+    <string name="countdown_in_zero">0:00</string>
+    <string name="ingresa_el_c_digo_de_confirmaci_n">Ingresa el código de confirmación</string>
+    <string name="message_codephone">que te enviamos vía sms a tu celular</string>
+    <string name="que_te_enviamos_v_a_correo">que te enviamos vía correo</string>
+    <string name="renviar_c_digo">Renviar código</string>
+    <string name="validation_cardExpiryDate"><b>Ingrese</b> la fecha de vencimiento de su tarjeta</string>
+    <string name="validation_cardNumber"><b>Ingrese</b> Los 16 digitos de su tarjeta</string>
+    <string name="validation_card_nip"><b>Ingrese</b> un NIP correcto</string>
+    <string name="validation_email"><b>Ingrese</b> un correo válido</string>
+    <string name="validation_min_number">Mínimo</string>
+    <string name="validation_required">El campo es requerido</string>
+    <style name="AnimationPopUpWindowScaleInOut">
+        <item name="android:windowEnterAnimation">@anim/scale_in</item>
+        <item name="android:windowExitAnimation">@anim/scale_out</item>
+    </style>
+    <style name="BtnGenericEnabled" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/color_button_aceptar</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="fontFamily">@font/raleway_semibold</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginStart">25dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ButtonNormalFilled" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="background">@drawable/shape_filled_normal</item>
+        <item name="android:fontFamily">@font/helvetica_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@color/color_state_list</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ButtonNormalFilledOcr" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="background">@drawable/shape_filled_normal</item>
+        <item name="android:fontFamily">@font/helvetica_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/color_state_list</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="CUCommonUtils.ExposedDropdownMenu.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@color/grayLight</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+    </style>
+    <style name="CUCommonUtils.ExposedDropdownMenu.TrailingTheme" parent="">
+        <item name="colorPrimary">@color/greenStrong</item>
+        <item name="colorPrimaryVariant">@color/greenStrong</item>
+    </style>
+    <style name="CUCommonUtils.MaterialButton.PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/color_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">@dimen/radius_16</item>
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="CUCommonUtils.MaterialButton.SecondaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/color_button_secondary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">@dimen/radius_16</item>
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="CUCommonUtils.Shape.BorderLeftBottom" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="CUCommonUtils.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/grayLight</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+    </style>
+    <style name="CUCommonUtils.TextInputLayout.TextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="colorControlActivated">@color/secondaryColor</item>
+    </style>
+    <style name="CUCommonUtils.Toolbar.Title" parent="">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="CUTextViewGeneric" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/grayOxford</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="TxtOutstaningBalanceStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/baz_string_title</item>
+    </style>
+    <style name="TxtSubtitleBoldStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+    <style name="TxtTextGenericGrayStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+    <declare-styleable name="AKAutocomplete">
+        <attr name="label"/>
+        <attr name="android:inputType"/>
+        <attr name="android:textColor"/>
+        <attr name="endIconDrawable"/>
+        <attr name="endIconMode"/>
+    </declare-styleable>
+    <declare-styleable name="AKTextField">
+        <attr name="label"/>
+        <attr name="android:inputType"/>
+        <attr name="android:textColor"/>
+        <attr name="endIconDrawable"/>
+        <attr name="endIconMode"/>
+        <attr name="android:maxLength"/>
+    </declare-styleable>
+    <declare-styleable name="AKToolbar">
+        <attr name="android:title"/>
+    </declare-styleable>
+    <declare-styleable name="ShadowLayout">
+        <attr format="boolean" name="sl_shadowed"/>
+        <attr format="dimension" name="sl_shadow_distance"/>
+        <attr format="integer" name="sl_shadow_angle"/>
+        <attr format="dimension" name="sl_shadow_radius"/>
+        <attr format="color" name="sl_shadow_color"/>
+    </declare-styleable>
+</resources>

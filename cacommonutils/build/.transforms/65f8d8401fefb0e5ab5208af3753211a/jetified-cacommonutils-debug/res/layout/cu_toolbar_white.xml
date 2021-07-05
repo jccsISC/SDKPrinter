@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:tag="layout/cu_toolbar_white_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_4"
+            android:backgroundTint="@color/white"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="true"
+            app:shapeAppearanceOverlay="@style/CUCommonUtils.Shape.BorderLeftBottom">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/material_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Corresponsales"
+                app:titleCentered="true"
+                app:titleTextAppearance="@style/CUCommonUtils.Toolbar.Title"
+                app:titleTextColor="@color/blue" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+         
