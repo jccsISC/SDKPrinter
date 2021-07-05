@@ -8,18 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="blankFragment1">
+                  <entry key="activateFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="500" />
+                            <option name="y" value="190" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_blankFragment1_to_blankFragment2">
+                            <entry key="action_activateFragment_to_connectPrinterFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -29,7 +29,33 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="blankFragment2">
+                  <entry key="connectPrinterFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="76" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_connectPrinterFragment_to_activateFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_connectPrinterFragment_to_toPrintFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="toPrintFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -40,36 +66,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_blankFragment2_to_blankFragment3">
+                            <entry key="action_toPrintFragment_to_activateFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="blankFragment3">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="295" />
-                            <option name="y" value="-296" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="imageFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="551" />
-                            <option name="y" value="9" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

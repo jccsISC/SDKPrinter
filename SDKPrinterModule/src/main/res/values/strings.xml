@@ -4,4 +4,23 @@
     <string name="activar_bluetooth">Activar BLuetooth</string>
     <string name="connect_your_printer">Conecte su impresora</string>
     <string name="add_bt">Añadir</string>
+    <string name="app_name">Imprerosa1</string>
+    <string name="conectar">Conectar</string>
+    <string name="to_print_with_img">Imprimir con imagen</string>
+    <string name="to_print">Imprimir</string>
+    <string name="txt_conected">Dispositivos sincronizados:\n%s</string>
+    <string name="desconectar">Desconectar</string>
+    <string name="refrescar">Refrescar</string>
+    <string name="device">Dispositivo:</string>
+    <string name="mac">MAC:</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="imprimir">Imprimir</string>
+    <string name="bluetooth_list">Bluetooth List</string>
+    <string name="btn_persistent">Persistent Bottom Sheet</string>
+    <string name="btn_modal">Modal Bottom Sheet</string>
+    <string name="tv_title">Learn Bottom Sheet</string>
+    <string name="this_device_does_not_support_bth">Este dispositivo no soporta Bluetooth</string>
+    <string name="no_paired_bluetooth_devices_found">"No se encontraron dispositivos bluetooth emparejados"</string>
+    <string name="bluetooth_disable">El bluetooth no está habilidato</string>
+    <string name="Did_not_grant_the_permissions_to_enable_bluetooth">No concedió los permisos para habilitar el bluetooth</string>
 </resources>

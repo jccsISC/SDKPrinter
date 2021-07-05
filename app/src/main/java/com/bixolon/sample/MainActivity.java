@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**retornamos la instancia*/
     public static BixolonPrinter getPrinterInstance()
     {
         return bxlPrinter;

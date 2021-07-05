@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/activateFragment">
+    <fragment
+        android:id="@+id/activateFragment"
+        android:name="com.example.sdkprintermodule.iu.bottomsheet.fragments.activatefragment.ActiveBthFragment"
+        android:label="ActivateFragment"
+        tools:layout="@layout/activate_bth_fragment">
+        <action
+            android:id="@+id/action_activateFragment_to_connectPrinterFragment"
+            app:destination="@id/connectPrinterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectPrinterFragment"
+        android:name="com.example.sdkprintermodule.iu.bottomsheet.fragments.connectfragment.ConnectPrinterFragment"
+        android:label="ConnectPrinterFragment"
+        tools:layout="@layout/connect_printer_fragment">
+        <action
+            android:id="@+id/action_connectPrinterFragment_to_toPrintFragment"
+            app:destination="@id/toPrintFragment" />
+        <action
+            android:id="@+id/action_connectPrinterFragment_to_activateFragment"
+            app:destination="@id/activateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toPrintFragment"
+        android:name="com.example.sdkprintermodule.iu.bottomsheet.fragments.printfragment.ToPrintFragment"
+        android:label="ToPrintFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        tools:layout="@layout/to_print_fragment">
+        <argument
+            android:name="address"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_toPrintFragment_to_activateFragment"
+            app:destination="@id/activateFragment" />
+    </fragment>
+</navigation>
