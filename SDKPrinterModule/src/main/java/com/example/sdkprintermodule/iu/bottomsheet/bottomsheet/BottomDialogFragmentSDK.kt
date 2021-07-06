@@ -43,6 +43,7 @@ class BottomDialogFragmentSDK : BottomSheetDialogFragment() {
         /**Inicializa bxlPrinter es global*/
 //        bxlPrinter = BixolonPrinter(context)
 
+        /**Inicializando la instancia de dagger*/
         CUAppInit().init(requireActivity().application, requireActivity().applicationContext)
 
         mBinding.btnCloseSDK.setOnClickListener { dismiss() }
