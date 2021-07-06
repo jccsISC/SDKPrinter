@@ -7,7 +7,6 @@
     <string name="app_name">Imprerosa1</string>
     <string name="conectar">Conectar</string>
     <string name="to_print_with_img">Imprimir con imagen</string>
-    <string name="to_print">Imprimir</string>
     <string name="txt_conected">Dispositivos sincronizados:\n%s</string>
     <string name="desconectar">Desconectar</string>
     <string name="refrescar">Refrescar</string>
@@ -25,4 +24,6 @@
     <string name="Did_not_grant_the_permissions_to_enable_bluetooth">No concedió los permisos para habilitar el bluetooth</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="to_print">Imprimir</string>
+    <string name="to_print_ticket">Imprimir ticket</string>
 </resources>

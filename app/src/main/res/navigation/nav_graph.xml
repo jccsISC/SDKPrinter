@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/blankFragment1"
-        android:name="com.bixolon.sample.bottomsheet.fragments.BlankFragment1"
+        android:name="com.bixolon.sample.bottomsheet.fragments.fragment1.BlankFragment1"
         android:label="fragment_blank1"
         tools:layout="@layout/fragment_blank1" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment2"
-        android:name="com.bixolon.sample.bottomsheet.fragments.BlankFragment2"
+        android:name="com.bixolon.sample.bottomsheet.fragments.fragment2.BlankFragment2"
         android:label="fragment_blank2"
         tools:layout="@layout/fragment_blank2" >
         <action
@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/imageFragment"
         tools:layout="@layout/fragment_image"
-        android:name="com.bixolon.sample.ImageFragment"
+        android:name="com.bixolon.sample.bottomsheet.fragments.fragment3.ImageFragment"
         android:label="ImageFragment" />
 </navigation>

@@ -86,11 +86,11 @@ public class PageModeFragment extends Fragment implements View.OnClickListener, 
     private void printPageModeSample() {
         // Step 1 : Area(Position), Direction
         int xPos = 0, yPos = 0;
-        int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+        int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
         int height = 1300;
 
-        MainActivity.getPrinterInstance().beginTransactionPrint();
-        MainActivity.getPrinterInstance().startPageMode(xPos, yPos, width, height, direction);
+        PrinterConnectActivity.getPrinterInstance().beginTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().startPageMode(xPos, yPos, width, height, direction);
 
         // Step 2 : Send print item
         switch (direction) {
@@ -113,17 +113,17 @@ public class PageModeFragment extends Fragment implements View.OnClickListener, 
         }
 
         // Step 3 : print start
-        MainActivity.getPrinterInstance().endPageMode(checkLabel.isChecked());
-        MainActivity.getPrinterInstance().endTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().endPageMode(checkLabel.isChecked());
+        PrinterConnectActivity.getPrinterInstance().endTransactionPrint();
     }
 
     private void printLeftToRight() {
-        int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+        int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
         int x = 5, y = 50;
         while (true) {
             // Position x, y
-            MainActivity.getPrinterInstance().setPageModePosition(x, y);
-            MainActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
+            PrinterConnectActivity.getPrinterInstance().setPageModePosition(x, y);
+            PrinterConnectActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
 
             if (y >= 1250 || x >= width) {
                 break;
@@ -135,12 +135,12 @@ public class PageModeFragment extends Fragment implements View.OnClickListener, 
     }
 
     private void printBottomToTop() {
-        int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+        int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
         int x = 5, y = 50;
         while (true) {
             // Position x, y
-            MainActivity.getPrinterInstance().setPageModePosition(x, y);
-            MainActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
+            PrinterConnectActivity.getPrinterInstance().setPageModePosition(x, y);
+            PrinterConnectActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
 
             if (y >= width || x >= 1250) {
                 break;
@@ -152,12 +152,12 @@ public class PageModeFragment extends Fragment implements View.OnClickListener, 
     }
 
     private void printRightToLeft() {
-        int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+        int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
         int x = 5, y = 1250;
         while (true) {
             // Position x, y
-            MainActivity.getPrinterInstance().setPageModePosition(x, y);
-            MainActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
+            PrinterConnectActivity.getPrinterInstance().setPageModePosition(x, y);
+            PrinterConnectActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
 
             if (y <= 50 || x >= width) {
                 break;
@@ -169,12 +169,12 @@ public class PageModeFragment extends Fragment implements View.OnClickListener, 
     }
 
     private void printTopToBottom() {
-        int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+        int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
         int x = 5, y = 50;
         while (true) {
             // Position x, y
-            MainActivity.getPrinterInstance().setPageModePosition(x, y);
-            MainActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
+            PrinterConnectActivity.getPrinterInstance().setPageModePosition(x, y);
+            PrinterConnectActivity.getPrinterInstance().printText("X : " + x + ", Y : " + y, 0, 0, 1);
 
             if (y >= width || x >= 1250) {
                 break;

@@ -17,7 +17,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/to_printer" />
+            app:lottie_rawRes="@raw/lt_to_printer" />
 
         <TextView
             android:id="@+id/txtPrint"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:gravity="center"
-            android:text="Imprimir ticket"
+            android:text="@string/to_print_ticket"
             android:textSize="@dimen/text_size_20"
             app:layout_constraintBottom_toTopOf="@+id/btnToPrint"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,10 +35,13 @@
             android:id="@+id/btnToPrint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/shape_tbn"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="24dp"
-            android:text="Imprimir"
+            android:text="@string/to_print"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

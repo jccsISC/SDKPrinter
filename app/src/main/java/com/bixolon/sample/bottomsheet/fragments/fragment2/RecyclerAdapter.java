@@ -1,4 +1,4 @@
-package com.bixolon.sample.bottomsheet.fragments;
+package com.bixolon.sample.bottomsheet.fragments.fragment2;
 
 import android.bluetooth.BluetoothDevice;
 import android.view.LayoutInflater;
@@ -42,7 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return listDevices.size();
     }
 
-    class ViewHolderDevices extends RecyclerView.ViewHolder {
+    static class ViewHolderDevices extends RecyclerView.ViewHolder {
 
         TextView txtName;
         RoundableLayout btnInfo;
@@ -58,19 +58,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         void bind(final BluetoothDevice device, final ItemListener itemListener) {
             txtName.setText(device.getName());
 
-            btnInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    itemListener.onCLickListenerInfo(device, getAdapterPosition());
-                }
-            });
+            btnInfo.setOnClickListener(v -> itemListener.onCLickListenerInfo(device, getAdapterPosition()));
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    itemListener.onCLickListenerCard(device, getAdapterPosition());
-                }
-            });
+            itemView.setOnClickListener(v -> itemListener.onCLickListenerCard(device, getAdapterPosition()));
         }
     }
 }

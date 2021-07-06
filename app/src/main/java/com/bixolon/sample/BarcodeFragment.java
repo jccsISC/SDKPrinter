@@ -162,73 +162,73 @@ public class BarcodeFragment extends Fragment implements View.OnClickListener {
 
                 switch (spinnerSymbology) {
                     case 0:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_UPCA;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_UPCA;
                         break;
                     case 1:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_UPCE;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_UPCE;
                         break;
                     case 2:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_EAN8;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN8;
                         break;
                     case 3:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_EAN13;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN13;
                         break;
                     case 4:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_ITF;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_ITF;
                         break;
                     case 5:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_Codabar;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Codabar;
                         break;
                     case 6:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_Code39;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code39;
                         break;
                     case 7:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_Code93;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code93;
                         break;
                     case 8:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_Code128;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code128;
                         break;
                     case 9:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_PDF417;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_PDF417;
                         break;
                     case 10:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_MAXICODE;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_MAXICODE;
                         break;
                     case 11:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_DATAMATRIX;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_DATAMATRIX;
                         break;
                     case 12:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_QRCODE;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_QRCODE;
                         break;
                     case 13:
-                        symbology = MainActivity.getPrinterInstance().BARCODE_TYPE_EAN128;
+                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN128;
                         break;
                 }
 
                 switch (spinnerAlignment) {
                     case 0:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
                         break;
                     case 1:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_CENTER;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;
                         break;
                     case 2:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_RIGHT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;
                         break;
                     default:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
                         break;
                 }
 
                 switch (spinnerHri) {
                     case 0:
-                        Hri = MainActivity.getPrinterInstance().BARCODE_HRI_NONE;
+                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_NONE;
                         break;
                     case 1:
-                        Hri = MainActivity.getPrinterInstance().BARCODE_HRI_ABOVE;
+                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_ABOVE;
                         break;
                     case 2:
-                        Hri = MainActivity.getPrinterInstance().BARCODE_HRI_BELOW;
+                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_BELOW;
                         break;
                 }
 
@@ -237,7 +237,7 @@ public class BarcodeFragment extends Fragment implements View.OnClickListener {
                     break;
                 }
 
-                MainActivity.getPrinterInstance().printBarcode(data, symbology, width, height, alignment, Hri);
+                PrinterConnectActivity.getPrinterInstance().printBarcode(data, symbology, width, height, alignment, Hri);
 
                 break;
         }

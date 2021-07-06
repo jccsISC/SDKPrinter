@@ -1,4 +1,4 @@
-package com.bixolon.sample.bottomsheet.fragments;
+package com.bixolon.sample.bottomsheet.fragments.fragment2;
 
 import android.bluetooth.BluetoothDevice;
 

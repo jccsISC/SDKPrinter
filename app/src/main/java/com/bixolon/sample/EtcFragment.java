@@ -65,10 +65,10 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonCutPaper:
-                MainActivity.getPrinterInstance().cutPaper();
+                PrinterConnectActivity.getPrinterInstance().cutPaper();
                 break;
             case R.id.buttonFormFeed:
-                MainActivity.getPrinterInstance().formFeed();
+                PrinterConnectActivity.getPrinterInstance().formFeed();
                 break;
             case R.id.buttonTransactionPrint:
                 transactionPrint();
@@ -80,13 +80,13 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
                 showGallery();
                 break;
             case R.id.buttonCheckHealth:
-                String checkHealth = MainActivity.getPrinterInstance().posPrinterCheckHealth();
+                String checkHealth = PrinterConnectActivity.getPrinterInstance().posPrinterCheckHealth();
                 if (checkHealth != null) {
                     Toast.makeText(getContext(), checkHealth, Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.buttonInfo:
-                String info = MainActivity.getPrinterInstance().getPosPrinterInfo();
+                String info = PrinterConnectActivity.getPrinterInstance().getPosPrinterInfo();
                 if (info != null) {
                     Toast.makeText(getContext(), info, Toast.LENGTH_LONG).show();
                 }
@@ -105,7 +105,7 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.buttonEjectPaper:
                 // Only BK3-3 Accessory(Presenter) are supported
-//                MainActivity.getPrinterInstance().ejectPaper(3/*or 5*/);
+//                PrinterConnectActivity.getPrinterInstance().ejectPaper(3/*or 5*/);
                 break;
             case R.id.buttonPresenterStatus:
                 // Only BK3-3 Accessory(Presenter) are supported
@@ -119,18 +119,18 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
     }
 
     private void transactionPrint() {
-        MainActivity.getPrinterInstance().beginTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().beginTransactionPrint();
 
-        MainActivity.getPrinterInstance().printText("Transaction mode\n", 0, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText("Transaction mode\n", 0, 0, 1);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bixolonlogo);
-        MainActivity.getPrinterInstance().printImage(bitmap, 250, MainActivity.getPrinterInstance().ALIGNMENT_CENTER, 20, 0, 1);
-        MainActivity.getPrinterInstance().printBarcode("123456789012", MainActivity.getPrinterInstance().BARCODE_TYPE_ITF, 3, 150, 2, MainActivity.getPrinterInstance().BARCODE_HRI_BELOW);
+        PrinterConnectActivity.getPrinterInstance().printImage(bitmap, 250, PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER, 20, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printBarcode("123456789012", PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_ITF, 3, 150, 2, PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_BELOW);
 
-        MainActivity.getPrinterInstance().endTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().endTransactionPrint();
     }
 
     private void receiptSample() {
-        MainActivity.getPrinterInstance().beginTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().beginTransactionPrint();
 
         String data = "";
         data = "Comp: TICKET\n" +
@@ -138,36 +138,36 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
                 "Tel: 01932 901 155\n" +
                 "123-456-789\n" +
                 "VAT No. 123456789\n\n";
-        MainActivity.getPrinterInstance().printText("TICKET\n\n", BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD | BixolonPrinter.ATTRIBUTE_UNDERLINE, 2);
-        MainActivity.getPrinterInstance().printBarcode("www.bixolon.com", BixolonPrinter.BARCODE_TYPE_QRCODE, 8, 8, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.BARCODE_HRI_NONE);
-        MainActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD, 1);
-        MainActivity.getPrinterInstance().printText("Sale:       " + "19-05-2017 16:19:43\n", BixolonPrinter.ALIGNMENT_LEFT, BixolonPrinter.ATTRIBUTE_BOLD, 1);
+        PrinterConnectActivity.getPrinterInstance().printText("TICKET\n\n", BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD | BixolonPrinter.ATTRIBUTE_UNDERLINE, 2);
+        PrinterConnectActivity.getPrinterInstance().printBarcode("www.bixolon.com", BixolonPrinter.BARCODE_TYPE_QRCODE, 8, 8, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.BARCODE_HRI_NONE);
+        PrinterConnectActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD, 1);
+        PrinterConnectActivity.getPrinterInstance().printText("Sale:       " + "19-05-2017 16:19:43\n", BixolonPrinter.ALIGNMENT_LEFT, BixolonPrinter.ATTRIBUTE_BOLD, 1);
 
         data = "Gate:       " + "Xcover kiosk\n" +
                 "Operator:   " + "Rob\n" +
                 "Order Code: " + "263036991\n";
-        MainActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
-        MainActivity.getPrinterInstance().printText("Qty Price  Item     Total\n", BixolonPrinter.ALIGNMENT_LEFT, BixolonPrinter.ATTRIBUTE_UNDERLINE, 1);
-        MainActivity.getPrinterInstance().printText(" 1  $8.00  PARKING  $8.00\n", BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText("Qty Price  Item     Total\n", BixolonPrinter.ALIGNMENT_LEFT, BixolonPrinter.ATTRIBUTE_UNDERLINE, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(" 1  $8.00  PARKING  $8.00\n", BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
 
         data = "Total (inc VAT):  " + "  $8.00\n" +
                 "VAT amount (20%): " + "  $1.33\n" +
                 "CARD payment:     " + "  $8.00\n" +
                 "Change due:       " + "  $0.00\n\n";
-        MainActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_RIGHT, BixolonPrinter.ATTRIBUTE_NORMAL, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_RIGHT, BixolonPrinter.ATTRIBUTE_NORMAL, 1);
 
         data = "Thank you for your purchase!\n" +
                 "Enjoy the show!\n" +
                 "Next year visit\n" +
                 "www.bixolon.com\n" +
                 "to buy discounted tickets.\n\n\n\n";
-        MainActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(data, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.ATTRIBUTE_BOLD, 1);
 
-        MainActivity.getPrinterInstance().endTransactionPrint();
+        PrinterConnectActivity.getPrinterInstance().endTransactionPrint();
     }
 
 //    private void getPresenterStatus() {
-//        byte status = MainActivity.getPrinterInstance().getPresenterStatus();
+//        byte status = PrinterConnectActivity.getPrinterInstance().getPresenterStatus();
 //        if(status == -1) {
 //            // Error
 //            return;
@@ -207,40 +207,40 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
 //    }
 
     private void farsiSample() {
-        int currentCs = MainActivity.getPrinterInstance().getCharacterSet();
+        int currentCs = PrinterConnectActivity.getPrinterInstance().getCharacterSet();
 
-        MainActivity.getPrinterInstance().setCharacterSet(BixolonPrinter.CS_FARSI);
+        PrinterConnectActivity.getPrinterInstance().setCharacterSet(BixolonPrinter.CS_FARSI);
 
         // Farsi option : Mixed
-        MainActivity.getPrinterInstance().setFarsiOption(BixolonPrinter.OPT_REORDER_FARSI_MIXED);
+        PrinterConnectActivity.getPrinterInstance().setFarsiOption(BixolonPrinter.OPT_REORDER_FARSI_MIXED);
         printReceiptforFarsi();
 
         // Farsi option : Right to Left
-        MainActivity.getPrinterInstance().setFarsiOption(BixolonPrinter.OPT_REORDER_FARSI_RTL);
+        PrinterConnectActivity.getPrinterInstance().setFarsiOption(BixolonPrinter.OPT_REORDER_FARSI_RTL);
         printReceiptforFarsi();
 
-        MainActivity.getPrinterInstance().setCharacterSet(currentCs);
+        PrinterConnectActivity.getPrinterInstance().setCharacterSet(currentCs);
     }
 
     private void printReceiptforFarsi() {
         String printText = "A. 1. عدد ۰۱۲۳۴۵۶۷۸۹" + "\nB. 2. عدد 0123456789" + "\nC. 3. به" + "\nD. 4. نه" + "\nE. 5. مراجعه" + "\n۱۳۹۷/۰۸/۱۱";
 
-        MainActivity.getPrinterInstance().printText(printText, BixolonPrinter.ALIGNMENT_RIGHT, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(printText, BixolonPrinter.ALIGNMENT_RIGHT, 0, 1);
 
         String address = "";
         address = "\nBIXOLON شرکت با مسئولیت محدود . 7 FL،";
         address += "\nMiraeAsset سرمایه گذاری برج 685 ،";
         address += "\nSampyeong دونگ، Bundang گو ، سئونگنام - سی،";
         address += "\nگیونگی-دو ، 463-400 ، کره";
-        MainActivity.getPrinterInstance().printText("\n" + address, BixolonPrinter.ALIGNMENT_RIGHT, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText("\n" + address, BixolonPrinter.ALIGNMENT_RIGHT, 0, 1);
     }
 
     private void arabicSample() {
-        int currentCs = MainActivity.getPrinterInstance().getCharacterSet();
+        int currentCs = PrinterConnectActivity.getPrinterInstance().getCharacterSet();
 
-        MainActivity.getPrinterInstance().setCharacterSet(BixolonPrinter.CS_864_ARABIC);
+        PrinterConnectActivity.getPrinterInstance().setCharacterSet(BixolonPrinter.CS_864_ARABIC);
         printReceiptforArabic();
-        MainActivity.getPrinterInstance().setCharacterSet(currentCs);
+        PrinterConnectActivity.getPrinterInstance().setCharacterSet(currentCs);
     }
 
     private void printReceiptforArabic() {
@@ -280,15 +280,15 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
         printText += "" + "\n";
         printText += "" + "\n";
         printText += "توقيع العميل: ______________  توقيع البائع: ______________" + "\n";
-        MainActivity.getPrinterInstance().printText(printText, BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printText(printText, BixolonPrinter.ALIGNMENT_LEFT, 0, 1);
     }
 
     private void getLocalCardInfo() {
-        if (MainActivity.getPrinterInstance().localSmartCardRWOpen()) {
-            if (MainActivity.getPrinterInstance().getLocalCardInfo(10)) {
-                byte[] track2 = MainActivity.getPrinterInstance().getLocalTrack2();
-                byte[] cardNumber = MainActivity.getPrinterInstance().getLocalCardNumber();
-                byte[] cardDueDate = MainActivity.getPrinterInstance().getLocalCardDueDate();
+        if (PrinterConnectActivity.getPrinterInstance().localSmartCardRWOpen()) {
+            if (PrinterConnectActivity.getPrinterInstance().getLocalCardInfo(10)) {
+                byte[] track2 = PrinterConnectActivity.getPrinterInstance().getLocalTrack2();
+                byte[] cardNumber = PrinterConnectActivity.getPrinterInstance().getLocalCardNumber();
+                byte[] cardDueDate = PrinterConnectActivity.getPrinterInstance().getLocalCardDueDate();
 
                 String msg = "";
                 if (track2 != null || track2.length > 0) {
@@ -305,24 +305,24 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
                 }
             }
 
-            MainActivity.getPrinterInstance().localSmartCardRWClose();
+            PrinterConnectActivity.getPrinterInstance().localSmartCardRWClose();
         }
     }
 
     private void BixolonDisplayTest() {
         // Display Text
-        MainActivity.getPrinterInstance().displayString("BIXOLON Customer Display 3000");
+        PrinterConnectActivity.getPrinterInstance().displayString("BIXOLON Customer Display 3000");
 
         // Clear Screen
-        //MainActivity.getPrinterInstance().displayClearScreen();
+        //PrinterConnectActivity.getPrinterInstance().displayClearScreen();
 
         // Store/Display Image
         /*Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_logo);
-        MainActivity.getPrinterInstance().displayStoreImage(bitmap, 160, 32, 1);
-        MainActivity.getPrinterInstance().displayImage(1, 0, 0);*/
+        PrinterConnectActivity.getPrinterInstance().displayStoreImage(bitmap, 160, 32, 1);
+        PrinterConnectActivity.getPrinterInstance().displayImage(1, 0, 0);*/
 
         // Clear Image
-        //MainActivity.getPrinterInstance().displayClearImage(false, 1);
+        //PrinterConnectActivity.getPrinterInstance().displayClearImage(false, 1);
     }
 
     private void showGallery() {
@@ -370,7 +370,7 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
 
             AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("File List").setItems(fileList, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    MainActivity.getPrinterInstance().updateFirmware(fileList[which]);
+                    PrinterConnectActivity.getPrinterInstance().updateFirmware(fileList[which]);
                 }
             }).create();
             dialog.show();
@@ -394,9 +394,9 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
                 int columnIndex = c.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                 String text = c.getString(columnIndex);
 
-                int width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
-                if (MainActivity.getPrinterInstance().defineNvImage(text, 1, 200, 50)) {
-                    MainActivity.getPrinterInstance().printNVImage(1);
+                int width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
+                if (PrinterConnectActivity.getPrinterInstance().defineNvImage(text, 1, 200, 50)) {
+                    PrinterConnectActivity.getPrinterInstance().printNVImage(1);
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.bixolon.sample;
+package com.bixolon.sample.bottomsheet.fragments.fragment3;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -27,6 +27,10 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bixolon.sample.MainActivity;
+import com.bixolon.sample.PrinterConnectActivity;
+import com.bixolon.sample.R;
 
 public class ImageFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener {
     private String PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -174,7 +178,7 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                 break;
 
             case R.id.buttonGetWidth:
-                width = MainActivity.getPrinterInstance().getPrinterMaxWidth();
+                width = PrinterConnectActivity.getPrinterInstance().getPrinterMaxWidth();
                 editTextWidth.setText(Integer.toString(width));
                 break;
 
@@ -185,16 +189,16 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
 
                 switch (spinnerAlignment) {
                     case 0:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
                         break;
                     case 1:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_CENTER;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;
                         break;
                     case 2:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_RIGHT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;
                         break;
                     default:
-                        alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
                         break;
                 }
 
@@ -210,10 +214,10 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
 
                 switch (radioGroupPrintingType.getCheckedRadioButtonId()) {
                     case R.id.radioImage:
-//                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither);
-//                        MainActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither, spinnerCompress);
+//                        PrinterConnectActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither);
+//                        PrinterConnectActivity.getPrinterInstance().printImage(strPath, width, alignment, brightness, spinnerDither, spinnerCompress);
 
-                        MainActivity.getPrinterInstance().printImage(myBitmap, width, alignment, brightness, spinnerDither, spinnerCompress);
+                        PrinterConnectActivity.getPrinterInstance().printImage(myBitmap, width, alignment, brightness, spinnerDither, spinnerCompress);
 
                         break;
                 }

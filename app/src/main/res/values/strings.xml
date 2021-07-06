@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BixolonSample</string>
+    <string name="app_name">SDKPrinter</string>
     <string name="Text">Text</string>
     <string name="Image">Image</string>
     <string name="Barcode">Barcode</string>

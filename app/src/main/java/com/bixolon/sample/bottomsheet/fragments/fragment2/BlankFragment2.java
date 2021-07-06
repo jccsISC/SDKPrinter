@@ -1,4 +1,4 @@
-package com.bixolon.sample.bottomsheet.fragments;
+package com.bixolon.sample.bottomsheet.fragments.fragment2;
 
 import android.Manifest;
 import android.bluetooth.BluetoothDevice;
@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bixolon.sample.MainActivity;
+import com.bixolon.sample.PrinterConnectActivity;
 import com.bixolon.sample.R;
 import com.bixolon.sample.databinding.FragmentBlank2Binding;
 import com.bxl.config.editor.BXLConfigLoader;
@@ -180,7 +181,7 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         mHandler.obtainMessage(0).sendToTarget();
 
         mProgressLarge.setVisibility(View.VISIBLE);
-        if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+        if (PrinterConnectActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
 //            goTOFragment3(view);
             goTOImageFragment(requireView());
         }

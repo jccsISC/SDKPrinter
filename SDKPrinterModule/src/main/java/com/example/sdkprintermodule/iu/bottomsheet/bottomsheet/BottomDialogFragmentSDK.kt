@@ -31,9 +31,8 @@ class BottomDialogFragmentSDK : BottomSheetDialogFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mBinding = BottomDialogFragmentSdkBinding.inflate(layoutInflater)
-
         return mBinding.root
     }
 

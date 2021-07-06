@@ -144,38 +144,38 @@ public class TextFragment extends Fragment implements OnClickListener{
 
                 switch(spinnerAlignment)
                 {
-                    case 0:		alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
-                    case 1:		alignment = MainActivity.getPrinterInstance().ALIGNMENT_CENTER;	    break;
-                    case 2:		alignment = MainActivity.getPrinterInstance().ALIGNMENT_RIGHT;		break;
-                    default:	alignment = MainActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
+                    case 0:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
+                    case 1:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;	    break;
+                    case 2:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;		break;
+                    default:	alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
                 }
 
                 switch(spinnerFont)
                 {
-                    case 0:		attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
-                    case 1:		attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_FONT_B;	break;
-                    case 2:		attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_FONT_C;	break;
-                    /*case 3:		attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_FONT_D;	break;*/
-                    default:	attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
+                    case 0:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
+                    case 1:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_B;	break;
+                    case 2:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_C;	break;
+                    /*case 3:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_D;	break;*/
+                    default:	attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
                 }
 
                 if(checkBold.isChecked())
                 {
-                    attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_BOLD;
+                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_BOLD;
                 }
 
                 if(checkUnderline.isChecked())
                 {
-                    attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_UNDERLINE;
+                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_UNDERLINE;
                 }
 
                 if(checkReverse.isChecked())
                 {
-                    attribute |= MainActivity.getPrinterInstance().ATTRIBUTE_REVERSE;
+                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_REVERSE;
                 }
 
-//                MainActivity.getPrinterInstance().printText(Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY).toString(), alignment, attribute, (spinnerSize + 1));
-                MainActivity.getPrinterInstance().printText(textoHtml, alignment, attribute, (spinnerSize + 1));
+//                PrinterConnectActivity.getPrinterInstance().printText(Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY).toString(), alignment, attribute, (spinnerSize + 1));
+                PrinterConnectActivity.getPrinterInstance().printText(textoHtml, alignment, attribute, (spinnerSize + 1));
 
                 break;
         }

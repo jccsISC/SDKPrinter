@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bixolon.sample.CashDrawerFragment;
 import com.bixolon.sample.DirectIOFragment;
-import com.bixolon.sample.ImageFragment;
+import com.bixolon.sample.bottomsheet.fragments.fragment3.ImageFragment;
 import com.bixolon.sample.MainActivity;
 import com.bixolon.sample.MsrFragment;
 import com.bixolon.sample.PageModeFragment;
@@ -36,8 +36,6 @@ import jpos.events.OutputCompleteEvent;
 import jpos.events.OutputCompleteListener;
 import jpos.events.StatusUpdateEvent;
 import jpos.events.StatusUpdateListener;
-
-import com.bixolon.sample.bottomsheet.fragments.BlankFragment3;
 import com.bxl.config.editor.BXLConfigLoader;
 
 public class BixolonPrinter implements ErrorListener, OutputCompleteListener, StatusUpdateListener, DirectIOListener, DataListener {
@@ -1626,9 +1624,9 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
                 ((ImageFragment) fm).setDeviceLog("Error : " + errorEvent);
             }
             /**Se ocupa*/
-            if (fm instanceof BlankFragment3) {
-                ((BlankFragment3) fm).setDeviceLog("Error : " + errorEvent);
-            }
+//            if (fm instanceof BlankFragment3) {
+//                ((BlankFragment3) fm).setDeviceLog("Error : " + errorEvent);
+//            }
 
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog("Error : " + errorEvent);
@@ -1665,9 +1663,9 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
             }
 
             /**Se ocupa*/
-            if (fm instanceof BlankFragment3) {
-                ((BlankFragment3) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
-            }
+//            if (fm instanceof BlankFragment3) {
+//                ((BlankFragment3) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
+//            }
 
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
@@ -1700,9 +1698,9 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
             }
 
             /**Se ocupa*/
-            if (fm instanceof BlankFragment3) {
-                ((BlankFragment3) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));
-            }
+//            if (fm instanceof BlankFragment3) {
+//                ((BlankFragment3) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));
+//            }
 
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));

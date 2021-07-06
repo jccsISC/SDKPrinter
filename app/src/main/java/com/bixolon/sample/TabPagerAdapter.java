@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
+import com.bixolon.sample.bottomsheet.fragments.fragment3.ImageFragment;
+
 public class TabPagerAdapter extends FragmentStatePagerAdapter
 {
     private Context mContext;

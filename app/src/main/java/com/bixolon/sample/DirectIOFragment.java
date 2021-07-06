@@ -79,15 +79,15 @@ public class DirectIOFragment extends Fragment implements View.OnClickListener {
             case R.id.buttonDirectCommand:
                 if (command == 6) {
                     // batter status : low, middle, high, full
-                    MainActivity.getPrinterInstance().directIO(2, null);
+                    PrinterConnectActivity.getPrinterInstance().directIO(2, null);
                 } else if (command == 7) {
                     // battery remaining capacity
-                    MainActivity.getPrinterInstance().directIO(4, null);
+                    PrinterConnectActivity.getPrinterInstance().directIO(4, null);
                 } else if (command == 8) {
                     // TPH
-                    MainActivity.getPrinterInstance().directIO(5, null);
+                    PrinterConnectActivity.getPrinterInstance().directIO(5, null);
                 } else {
-                    MainActivity.getPrinterInstance().directIO(1, DATA[command]);
+                    PrinterConnectActivity.getPrinterInstance().directIO(1, DATA[command]);
                 }
 
                 break;
@@ -100,10 +100,10 @@ public class DirectIOFragment extends Fragment implements View.OnClickListener {
 
                 data = data.replaceAll(" ", "");
                 data = data.replaceAll("\n", "");
-                byte[] command = MainActivity.getPrinterInstance().StringToHex(data);
+                byte[] command = PrinterConnectActivity.getPrinterInstance().StringToHex(data);
 
                 if (command != null) {
-                    MainActivity.getPrinterInstance().directIO(1, command);
+                    PrinterConnectActivity.getPrinterInstance().directIO(1, command);
                 }
 
                 break;
