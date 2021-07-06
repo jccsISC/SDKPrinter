@@ -1,3 +1,4 @@
 include ':cacommonutils'
+include ':cacommonutils'
 include ':SDKPrinterModule'
 include ':app'

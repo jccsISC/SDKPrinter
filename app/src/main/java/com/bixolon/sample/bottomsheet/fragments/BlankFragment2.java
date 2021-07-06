@@ -1,8 +1,6 @@
 package com.bixolon.sample.bottomsheet.fragments;
 
 import android.Manifest;
-import android.app.Dialog;
-import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,13 +22,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,8 +34,6 @@ import com.bixolon.sample.databinding.FragmentBlank2Binding;
 import com.bxl.config.editor.BXLConfigLoader;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static com.bixolon.sample.bottomsheet.ActionBottomDialogFragment.m_bluetoothAdapter;
@@ -90,15 +82,12 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
         /**Llenamos este array de los dispositivos que obtuvimos*/
         rvDevice = view.findViewById(R.id.rvPairedDevices);
-        adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device, this);
+        adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device_sdk, this);
         rvDevice.setAdapter(adapterDevice);
 
-        mBinding.btnOpenConfig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
-                startActivity(i);
-            }
+        mBinding.btnOpenConfig.setOnClickListener(v -> {
+            Intent i = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+            startActivity(i);
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -209,10 +198,9 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
     }
 
-
     public void buttonPopupwindow(View view, String name, String address){
         LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail, null);
+        View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail_sdk, null);
         final PopupWindow popupWindow = new PopupWindow(viewPopupwindow, 900, 500, true);
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
 

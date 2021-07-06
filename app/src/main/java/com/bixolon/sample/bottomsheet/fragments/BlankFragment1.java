@@ -3,20 +3,16 @@ package com.bixolon.sample.bottomsheet.fragments;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.bixolon.sample.R;
 import com.bixolon.sample.databinding.FragmentBlank1Binding;
-
 import static com.bixolon.sample.bottomsheet.ActionBottomDialogFragment.REQUEST_ENABLE_BLUETOOTH;
 import static com.bixolon.sample.bottomsheet.ActionBottomDialogFragment.m_bluetoothAdapter;
 
@@ -25,8 +21,7 @@ public class BlankFragment1 extends Fragment {
     private static FragmentBlank1Binding mBinding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = FragmentBlank1Binding.inflate(getLayoutInflater());
         return mBinding.getRoot();
     }
@@ -44,15 +39,10 @@ public class BlankFragment1 extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_blankFragment1_to_blankFragment2);
         }
 
-        mBinding.btnActivateBth.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (!m_bluetoothAdapter.isEnabled()) {
-                    mBinding.txtBthStatus.setText("Bluetooth está desactivado");
-                    Intent enableBluetoothIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBluetoothIntent, REQUEST_ENABLE_BLUETOOTH);
-                }
+        mBinding.btnActivateBth.setOnClickListener(v -> {
+            if (!m_bluetoothAdapter.isEnabled()) {
+                Intent enableBluetoothIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBluetoothIntent, REQUEST_ENABLE_BLUETOOTH);
             }
         });
     }

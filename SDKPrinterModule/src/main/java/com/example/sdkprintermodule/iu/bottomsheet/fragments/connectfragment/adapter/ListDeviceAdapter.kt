@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sdkprintermodule.databinding.CardItemDeviceBinding
+import com.example.sdkprintermodule.databinding.CardItemDeviceSdkBinding
 
 class ListDeviceAdapter: ListAdapter<BluetoothDevice, ListDeviceAdapter.DeviceViewHolder>(DiffCallback) {
 
@@ -15,7 +15,7 @@ class ListDeviceAdapter: ListAdapter<BluetoothDevice, ListDeviceAdapter.DeviceVi
     lateinit var onClickListenerInformation: (BluetoothDevice, View) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceViewHolder {
-        val binding = CardItemDeviceBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = CardItemDeviceSdkBinding.inflate(LayoutInflater.from(parent.context))
         return DeviceViewHolder(binding)
     }
 
@@ -24,7 +24,7 @@ class ListDeviceAdapter: ListAdapter<BluetoothDevice, ListDeviceAdapter.DeviceVi
         holder.bind(deviceModel)
     }
 
-    inner class DeviceViewHolder(private val binding: CardItemDeviceBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class DeviceViewHolder(private val binding: CardItemDeviceSdkBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(deviceModel: BluetoothDevice) = with(binding) {
 
             txtDevice.text = deviceModel.name

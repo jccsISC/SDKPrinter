@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bixolon.sample.bottomsheet.ActionBottomDialogFragment;
 import com.bixolon.sample.databinding.ActivityPrinterConnectBinding;
-import com.example.sdkprintermodule.iu.bottomsheet.bottomsheet.SDKBottomDialogFragment;
 
 public class PrinterConnectActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class PrinterConnectActivity extends AppCompatActivity {
         setContentView(mBinding.getRoot());
 
         mBinding.button.setOnClickListener(v -> showBottomSheet());
-        mBinding.btnOpenSDK.setOnClickListener(v -> openSDKPrinter());
+//        mBinding.btnOpenSDK.setOnClickListener(v -> openSDKPrinter());
     }
 
     public void showBottomSheet() {
@@ -26,8 +25,8 @@ public class PrinterConnectActivity extends AppCompatActivity {
         addPhotoBottomDialogFragment.show(getSupportFragmentManager(), ActionBottomDialogFragment.TAG);
     }
 
-    public void openSDKPrinter() {
-        SDKBottomDialogFragment openBottomSheetSDK = SDKBottomDialogFragment.Companion.newInstance();
-        openBottomSheetSDK.show(getSupportFragmentManager(), SDKBottomDialogFragment.TAG);
-    }
+//    public void openSDKPrinter() {
+//        BottomDialogFragmentSDK openBottomSheetSDK = BottomDialogFragmentSDK.Companion.newInstance();
+//        openBottomSheetSDK.show(getSupportFragmentManager(), BottomDialogFragmentSDK.TAG);
+//    }
 }

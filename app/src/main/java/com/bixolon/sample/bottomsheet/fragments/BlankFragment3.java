@@ -71,7 +71,7 @@ public class BlankFragment3 extends Fragment implements SeekBar.OnSeekBarChangeL
         super.onViewCreated(view, savedInstanceState);
 
         //todo inflando vista para imprimir bitmap
-        View inflatedFrame = getLayoutInflater().inflate(R.layout.ticket, null);
+        View inflatedFrame = getLayoutInflater().inflate(R.layout.ticket_sdk, null);
         FrameLayout frameLayout = inflatedFrame.findViewById(R.id.ticketFrameLayout) ;
         frameLayout.setDrawingCacheEnabled(true);
         frameLayout.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
