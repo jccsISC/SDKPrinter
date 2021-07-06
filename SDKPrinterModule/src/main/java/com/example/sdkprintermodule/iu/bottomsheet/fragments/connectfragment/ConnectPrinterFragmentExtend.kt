@@ -20,7 +20,7 @@ fun ConnectPrinterFragment.initElements() {
 
         pairedDeviceList()
 
-        btnOpenConfig.setOnClickListener { startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS)) }
+        btnOpenConfigSDK.setOnClickListener { startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS)) }
     }
 }
 
@@ -40,7 +40,7 @@ fun ConnectPrinterFragment.pairedDeviceList() {
         }
 
         if (list.size > 0) {
-            mBinding.rvDevices.adapter = adapter
+            mBinding.rvDevicesSDK.adapter = adapter
 
             adapter.submitList(list)
 
@@ -49,8 +49,8 @@ fun ConnectPrinterFragment.pairedDeviceList() {
                 CUPopUpWindow(R.layout.card_item_device_detail_sdk, view, {
                     val bindingItem = CardItemDeviceDetailSdkBinding.bind(it)
                     bindingItem.apply {
-                        txtDeviceName.text = bluetoothDevice.name
-                        txtDeviceMac.text = bluetoothDevice.address
+                        txtDeviceNameSDK.text = bluetoothDevice.name
+                        txtDeviceMacSDK.text = bluetoothDevice.address
                     }
                 })
             }
@@ -60,7 +60,6 @@ fun ConnectPrinterFragment.pairedDeviceList() {
 
         adapter.onClickListener = { bluetoothDevice: BluetoothDevice ->
             if (m_bluetoothAdapter_sdk!!.isEnabled) {
-                showToast(bluetoothDevice.name)
                 val action = ConnectPrinterFragmentDirections.actionConnectPrinterFragmentToToPrintFragment(bluetoothDevice.address)
                 findNavController().navigate(action)
             } else {

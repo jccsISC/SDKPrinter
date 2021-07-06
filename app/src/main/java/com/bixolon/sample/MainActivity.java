@@ -63,17 +63,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final int ANDROID_NOUGAT = 24;
-        if(Build.VERSION.SDK_INT >= ANDROID_NOUGAT)
-        {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+//        final int ANDROID_NOUGAT = 24;
+//        if(Build.VERSION.SDK_INT >= ANDROID_NOUGAT)
+//        {
+//            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//            StrictMode.setThreadPolicy(policy);
+//        }
 
         /**Inicializa bxlPrinter es global*/
         bxlPrinter = new BixolonPrinter(getApplicationContext());
 
-        Thread.setDefaultUncaughtExceptionHandler(new AppUncaughtExceptionHandler());
+//        Thread.setDefaultUncaughtExceptionHandler(new AppUncaughtExceptionHandler());
 
         startConnectionActivity();
 
@@ -140,13 +140,13 @@ public class MainActivity extends AppCompatActivity {
         return currentFragment;
     }
 
-    public class AppUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
-        @Override
-        public void uncaughtException(Thread thread, final Throwable ex) {
-            ex.printStackTrace();
-
-            android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(10);
-        }
-    }
+//    public class AppUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
+//        @Override
+//        public void uncaughtException(Thread thread, final Throwable ex) {
+//            ex.printStackTrace();
+//
+//            android.os.Process.killProcess(android.os.Process.myPid());
+//            System.exit(10);
+//        }
+//    }
 }

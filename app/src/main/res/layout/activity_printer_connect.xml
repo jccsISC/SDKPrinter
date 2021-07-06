@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,7 +18,7 @@
             android:elevation="4dp"
             android:onClick="showBottomSheet"
             android:padding="8dp"
-            android:text="Show BottomSheet"
+            android:text="@string/show_bottomsheet"
             android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +36,7 @@
             android:elevation="4dp"
             android:onClick="openSDKPrinter"
             android:padding="8dp"
-            android:text="Open SDK"
+            android:text="@string/abrir_sdk"
             android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

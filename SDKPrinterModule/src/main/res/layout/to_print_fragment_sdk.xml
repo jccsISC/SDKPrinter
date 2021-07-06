@@ -5,15 +5,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.fragments.Fragment3">
+        android:layout_height="wrap_content">
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
+            android:id="@+id/lottieAnimationViewSDK"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/txtBthStatus"
+            app:layout_constraintBottom_toTopOf="@+id/txtPrint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
@@ -21,20 +20,19 @@
             app:lottie_rawRes="@raw/to_printer" />
 
         <TextView
-            android:id="@+id/txtBthStatus"
+            android:id="@+id/txtPrint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:gravity="center"
             android:text="Imprimir ticket"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnOpenConfig"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintBottom_toTopOf="@+id/btnToPrint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btnOpenConfig"
-            style="@style/StyleButton"
+            android:id="@+id/btnToPrint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

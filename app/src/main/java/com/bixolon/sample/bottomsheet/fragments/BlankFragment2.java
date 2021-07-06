@@ -82,7 +82,7 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
         /**Llenamos este array de los dispositivos que obtuvimos*/
         rvDevice = view.findViewById(R.id.rvPairedDevices);
-        adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device_sdk, this);
+        adapterDevice = new RecyclerAdapter(listDevice, R.layout.card_item_device, this);
         rvDevice.setAdapter(adapterDevice);
 
         mBinding.btnOpenConfig.setOnClickListener(v -> {
@@ -200,7 +200,7 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
     public void buttonPopupwindow(View view, String name, String address){
         LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail_sdk, null);
+        View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail, null);
         final PopupWindow popupWindow = new PopupWindow(viewPopupwindow, 900, 500, true);
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
 

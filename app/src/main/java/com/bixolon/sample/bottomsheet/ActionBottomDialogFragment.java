@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.navigation.Navigation;
 import com.bixolon.sample.databinding.BottomSheetDialogLayoutBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import java.util.Set;
 
 public class ActionBottomDialogFragment extends BottomSheetDialogFragment {

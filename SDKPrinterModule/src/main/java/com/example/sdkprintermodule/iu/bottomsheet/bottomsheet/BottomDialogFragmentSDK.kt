@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
+import com.bancoazteca.corresponsal.cacommonutils.application.CUAppInit
 import com.example.sdkprintermodule.R
 import com.example.sdkprintermodule.databinding.BottomDialogFragmentSdkBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,6 +33,7 @@ class BottomDialogFragmentSDK : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = BottomDialogFragmentSdkBinding.inflate(layoutInflater)
+
         return mBinding.root
     }
 
@@ -41,16 +43,18 @@ class BottomDialogFragmentSDK : BottomSheetDialogFragment() {
         /**Inicializa bxlPrinter es global*/
 //        bxlPrinter = BixolonPrinter(context)
 
-        mBinding.btnClose.setOnClickListener { dismiss() }
+        CUAppInit().init(requireActivity().application, requireActivity().applicationContext)
+
+        mBinding.btnCloseSDK.setOnClickListener { dismiss() }
     }
 
 
     override fun onResume() {
         super.onResume()
 
-        mBinding.navHotFragment.apply {
+        mBinding.navHotFragmentSdk.apply {
 
-            if (m_bluetoothAdapter_sdk != null && !m_bluetoothAdapter_sdk!!.isEnabled) {
+            if (!m_bluetoothAdapter_sdk!!.isEnabled) {
 
                     when (findNavController().currentDestination!!.label) {
                         FragmentLabelEnum.CONNECT_FRAGMENT.titleLabel -> {

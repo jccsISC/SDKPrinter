@@ -27,9 +27,9 @@ class ListDeviceAdapter: ListAdapter<BluetoothDevice, ListDeviceAdapter.DeviceVi
     inner class DeviceViewHolder(private val binding: CardItemDeviceSdkBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(deviceModel: BluetoothDevice) = with(binding) {
 
-            txtDevice.text = deviceModel.name
+            txtDeviceSDK.text = deviceModel.name
 
-            btnInfoDevice.setOnClickListener {
+            btnInfoDeviceSDK.setOnClickListener {
                 if (::onClickListenerInformation.isInitialized) {
                     onClickListenerInformation(deviceModel, it)
                 }else {

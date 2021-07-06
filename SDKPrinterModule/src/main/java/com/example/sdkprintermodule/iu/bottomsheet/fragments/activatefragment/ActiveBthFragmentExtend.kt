@@ -12,17 +12,17 @@ fun ActiveBthFragment.initElements() {
 
     mBinding.apply {
 
-        //Verificamos si el dispositivo es compatible con el bluetooth
+        /**Verificamos si el dispositivo es compatible con el bluetooth*/
         m_bluetoothAdapter_sdk = BluetoothAdapter.getDefaultAdapter()
         if (m_bluetoothAdapter_sdk == null) {
             showToast(getString(R.string.this_device_does_not_support_bth))
         }
 
-        if (!m_bluetoothAdapter_sdk!!.isEnabled) {
+        if (m_bluetoothAdapter_sdk!!.isEnabled) {
             findNavController().navigate(R.id.action_activateFragment_to_connectPrinterFragment)
         }
 
-        btnActivateBth.setOnClickListener {
+        btnActivateBthSDK.setOnClickListener {
             //Verificamos si está activado el bluetooth si no lo activamos
             if (!m_bluetoothAdapter_sdk!!.isEnabled) {
                 val enableBluetoothIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)

@@ -9,7 +9,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvDevices"
+            android:id="@+id/rvDevicesSDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -27,11 +27,10 @@
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="¿No está tu impresora?"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_size_20" />
 
         <Button
-            android:id="@+id/btnOpenConfig"
-            style="@style/StyleButton"
+            android:id="@+id/btnOpenConfigSDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

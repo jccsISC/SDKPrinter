@@ -15,7 +15,7 @@
             android:layout_height="200dp"/>
 
         <TextView
-            android:id="@+id/txtBthStatus"
+            android:id="@+id/txtBthStatusSDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
@@ -25,8 +25,7 @@
             android:textSize="@dimen/text_size_20" />
 
         <Button
-            android:id="@+id/btnActivateBth"
-            style="@style/StyleButton"
+            android:id="@+id/btnActivateBthSDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
