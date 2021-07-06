@@ -115,15 +115,12 @@ public class BlankFragment2 extends Fragment implements ItemListener {
                     listDevice.add(device);
                 }
             }
-
         }
 
         if (adapterDevice != null) {
             adapterDevice.notifyDataSetChanged();
         }
-
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -160,17 +157,12 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         }
     });
 
-//    public void goTOFragment3(View view) {
-//        Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment3);
-//    }
-
     public void goTOImageFragment(View view) {
         Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_imageFragment);
     }
 
     @Override
     public void onCLickListenerInfo(BluetoothDevice device, int position) {
-
         buttonPopupwindow(requireView(), device.getName(), device.getAddress());
     }
 
@@ -181,19 +173,17 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         mHandler.obtainMessage(0).sendToTarget();
 
         mProgressLarge.setVisibility(View.VISIBLE);
+
         if (PrinterConnectActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-//            goTOFragment3(view);
             goTOImageFragment(requireView());
         }
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (MainActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
-//                    goTOImageFragment(requireView());
-//                } else {
-//                    mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
-//                }
+//        new Thread(() -> {
+//            if (PrinterConnectActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
+//                goTOImageFragment(requireView());
+//                Toast.makeText(getContext(), "click ok", Toast.LENGTH_SHORT).show();
+//            } else {
+//                mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
 //            }
 //        }).start();
 

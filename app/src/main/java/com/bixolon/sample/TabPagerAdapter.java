@@ -53,47 +53,47 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter
         switch (position) {
             case 0:
                 if(mTextFragment == null) {
-                    mTextFragment = mTextFragment.newInstance();
+                    mTextFragment = TextFragment.newInstance();
                 }
                 return mTextFragment;
             case 1:
                 if(mImageFragment == null) {
-                    mImageFragment = mImageFragment.newInstance();
+                    mImageFragment = ImageFragment.newInstance();
                 }
                 return mImageFragment;
             case 2:
                 if(mBarcodeFragment == null) {
-                    mBarcodeFragment = mBarcodeFragment.newInstance();
+                    mBarcodeFragment = BarcodeFragment.newInstance();
                 }
                 return mBarcodeFragment;
             case 3:
                 if(mPageModeFragment == null) {
-                    mPageModeFragment = mPageModeFragment.newInstance();
+                    mPageModeFragment = PageModeFragment.newInstance();
                 }
                 return mPageModeFragment;
             case 4:
                 if(mDirectIOFragment == null) {
-                    mDirectIOFragment = mDirectIOFragment.newInstance();
+                    mDirectIOFragment = DirectIOFragment.newInstance();
                 }
                 return mDirectIOFragment;
             case 5:
                 if(mMsrFragment == null) {
-                    mMsrFragment = mMsrFragment.newInstance();
+                    mMsrFragment = MsrFragment.newInstance();
                 }
                 return mMsrFragment;
             case 6:
                 if(mScrFragment == null) {
-                    mScrFragment = mScrFragment.newInstance();
+                    mScrFragment = ScrFragment.newInstance();
                 }
                 return mScrFragment;
             case 7:
                 if(mCashDrawerFragment == null) {
-                    mCashDrawerFragment = mCashDrawerFragment.newInstance();
+                    mCashDrawerFragment = CashDrawerFragment.newInstance();
                 }
                 return mCashDrawerFragment;
             case 8:
                 if(mEtcFragment == null) {
-                    mEtcFragment = mEtcFragment.newInstance();
+                    mEtcFragment = EtcFragment.newInstance();
                 }
                 return mEtcFragment;
             default:

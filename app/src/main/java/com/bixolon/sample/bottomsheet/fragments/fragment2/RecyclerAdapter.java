@@ -17,7 +17,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private int layout;
     private ItemListener itemListener;
 
-
     public RecyclerAdapter(List<BluetoothDevice> listDevices, int layout, ItemListener itemListener) {
         this.listDevices = listDevices;
         this.layout = layout;

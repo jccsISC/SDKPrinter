@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.bixolon.sample.MainActivity;
 import com.bixolon.sample.PrinterConnectActivity;
+import com.bixolon.sample.PrinterControl.BixolonPrinter;
 import com.bixolon.sample.R;
 
 public class ImageFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener {
@@ -188,17 +189,14 @@ public class ImageFragment extends Fragment implements View.OnClickListener, See
                 brightness = seekBarBrightness.getProgress();
 
                 switch (spinnerAlignment) {
-                    case 0:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
-                        break;
                     case 1:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;
+                        alignment = BixolonPrinter.ALIGNMENT_CENTER;
                         break;
                     case 2:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;
+                        alignment = BixolonPrinter.ALIGNMENT_RIGHT;
                         break;
                     default:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = BixolonPrinter.ALIGNMENT_LEFT;
                         break;
                 }
 

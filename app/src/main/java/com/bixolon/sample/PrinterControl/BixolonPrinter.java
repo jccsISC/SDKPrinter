@@ -150,116 +150,6 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
 
     }
 
-    //todo si no se ocupa eliminar
-//    public void r220Test(int cnt){
-//        try {
-//            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_TRANSACTION);
-//
-//            posPrinter.setPageModePrintArea("0,0,416,800");
-//            posPrinter.setPageModePrintDirection(POSPrinterConst.PTR_PD_LEFT_TO_RIGHT);
-//            posPrinter.setPageModeHorizontalPosition(75);
-//            posPrinter.setPageModeVerticalPosition(45);
-//            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_PAGE_MODE);
-//
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(13)+EscapeSequence.getString(15) + (cnt+ 1)+ "統一速達股份有限公司\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(28);
-//            posPrinter.setPageModeVerticalPosition(95);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)+EscapeSequence.getString(16) + (cnt + 1 )+ "電子發票證明聯\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(52);
-//            posPrinter.setPageModeVerticalPosition(145);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(1)  + EscapeSequence.getString(16)+ "period" + "月 \r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(48);
-//            posPrinter.setPageModeVerticalPosition(205);
-//
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(2) + EscapeSequence.getString(27)+ EscapeSequence.getString(19) + "123456789"+ "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(240);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "yyyy-MM-dd HH:mm:ss" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(270);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "隨機碼 " + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(220);
-//            posPrinter.setPageModeVerticalPosition(270);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "voiceMoney" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(300);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "賣方 " + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(220);
-//            posPrinter.setPageModeVerticalPosition(300);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "買方:" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(35);
-//            posPrinter.setPageModeVerticalPosition(320);
-//            int symbology = POSPrinterConst.PTR_BCS_Code39;
-//            int height = 50;
-//            int width = 1;
-//            int alignment = POSPrinterConst.PTR_BC_CENTER;
-//            int textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT,"1234567890", symbology, height, width, alignment,
-//                    textPosition);
-//
-//            posPrinter.setPageModeHorizontalPosition(20);
-//            posPrinter.setPageModeVerticalPosition(550);
-//            symbology = POSPrinterConst.PTR_BCS_QRCODE;
-//            height = 0;
-//            width = 3;
-//            alignment = POSPrinterConst.PTR_BC_LEFT;
-//            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
-//                    textPosition);
-//
-//            posPrinter.setPageModeHorizontalPosition(200);
-//            posPrinter.setPageModeVerticalPosition(550);
-//            symbology = POSPrinterConst.PTR_BCS_QRCODE;
-//            height = 0;
-//            width = 3;
-//            alignment = POSPrinterConst.PTR_BC_LEFT;
-//            textPosition = POSPrinterConst.PTR_BC_TEXT_NONE;
-//            posPrinter.printBarCode(POSPrinterConst.PTR_S_RECEIPT, "www.bixolon.com", symbology, height, width, alignment,
-//                    textPosition);
-//
-//
-//            posPrinter.setPageModeHorizontalPosition(0);
-//            posPrinter.setPageModeVerticalPosition(570);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "品名:配送費  X " + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(250);
-//            posPrinter.setPageModeVerticalPosition(570);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "總計:" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(600);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "銷售額:" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(220);
-//            posPrinter.setPageModeVerticalPosition(600);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) +"稅額:" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(630);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "稅額:" + "\r\n");
-//
-//            posPrinter.setPageModeHorizontalPosition(10);
-//            posPrinter.setPageModeVerticalPosition(660);
-//            posPrinter.printNormal(POSPrinterConst.PTR_S_RECEIPT, EscapeSequence.getString(4) + EscapeSequence.getString(0) + "換開發票請於7日內攜正本更換\r\n");
-//
-//            posPrinter.pageModePrint(POSPrinterConst.PTR_PM_NORMAL);
-//
-//            posPrinter.transactionPrint(POSPrinterConst.PTR_S_RECEIPT, POSPrinterConst.PTR_TP_NORMAL);
-//        } catch (Exception e) {
-//
-//        }
-//
-//    }
-
     /**Abrir la siguiente vista*/
     public boolean printerOpen(int portType, String logicalName, String address, boolean isAsyncMode) {
         if (setTargetDevice(portType, logicalName, BXLConfigLoader.DEVICE_CATEGORY_POS_PRINTER, address)) {
@@ -324,106 +214,10 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
     }
 
     private String getProductName(String name) {
-        String productName = BXLConfigLoader.PRODUCT_NAME_SPP_R200II;
+        String productName = BXLConfigLoader.PRODUCT_NAME_SPP_R200III;
 
         if ((name.equals("SPP-R200III"))) {
             productName = BXLConfigLoader.PRODUCT_NAME_SPP_R200III;
-        } else if ((name.equals("SPP-R210"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R210;
-        } else if ((name.equals("SPP-R215"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R215;
-        } else if ((name.equals("SPP-R220"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R220;
-        } else if ((name.equals("SPP-R300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R300;
-        } else if ((name.equals("SPP-R310"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R310;
-        } else if ((name.equals("SPP-R318"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R318;
-        } else if ((name.equals("SPP-R400"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R400;
-        } else if ((name.equals("SPP-R410"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R410;
-        } else if ((name.equals("SPP-R418"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_R418;
-        } else if ((name.equals("SPP-100II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_100II;
-        } else if ((name.equals("SRP-350III"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_350III;
-        } else if ((name.equals("SRP-352III"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_352III;
-        } else if ((name.equals("SRP-350plusIII"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_350PLUSIII;
-        } else if ((name.equals("SRP-352plusIII"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_352PLUSIII;
-        } else if ((name.equals("SRP-380"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_380;
-        } else if ((name.equals("SRP-382"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_382;
-        } else if ((name.equals("SRP-383"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_383;
-        } else if ((name.equals("SRP-340II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_340II;
-        } else if ((name.equals("SRP-342II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_342II;
-        } else if ((name.equals("SRP-Q200"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_Q200;
-        } else if ((name.equals("SRP-Q300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_Q300;
-        } else if ((name.equals("SRP-Q302"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_Q302;
-        } else if ((name.equals("SRP-QE300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_QE300;
-        } else if ((name.equals("SRP-QE302"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_QE302;
-        } else if ((name.equals("SRP-E300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_E300;
-        } else if ((name.equals("SRP-E302"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_E302;
-        } else if ((name.equals("SRP-B300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_B300;
-        } else if ((name.equals("SRP-330II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_330II;
-        } else if ((name.equals("SRP-332II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_332II;
-        } else if ((name.equals("SRP-S200"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_S200;
-        } else if ((name.equals("SRP-S300"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_S300;
-        } else if ((name.equals("SRP-S320"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_S320;
-        } else if ((name.equals("SRP-S3000"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_S3000;
-        } else if ((name.equals("SRP-F310"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_F310;
-        } else if ((name.equals("SRP-F312"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_F312;
-        } else if ((name.equals("SRP-F310II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_F310II;
-        } else if ((name.equals("SRP-F312II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_F312II;
-        } else if ((name.equals("SRP-F313II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_F313II;
-        } else if ((name.equals("SRP-275III"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SRP_275III;
-//        } else if ((name.equals("BK3-2"))) {
-//            productName = BXLConfigLoader.PRODUCT_NAME_BK3_2;
-        } else if ((name.equals("BK3-3"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_BK3_3;
-        } else if ((name.equals("SLP X-Series"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SLP_X_SERIES;
-        } else if ((name.equals("SLP-DX420"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SLP_DX420;
-        } else if ((name.equals("SPP-L410II"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SPP_L410II;
-        } else if ((name.equals("MSR"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_MSR;
-        } else if ((name.equals("CashDrawer"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_CASH_DRAWER;
-        } else if ((name.equals("LocalSmartCardRW"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_LOCAL_SMART_CARD_RW;
-        } else if ((name.equals("SmartCardRW"))) {
-            productName = BXLConfigLoader.PRODUCT_NAME_SMART_CARD_RW;
         }
 
         return productName;
@@ -480,11 +274,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
             }
 
             switch (textSize) {
-                case 1:
-                    strOption += EscapeSequence.getString(17);
-//                    strOption += EscapeSequence.getString(26);
-                    strOption += EscapeSequence.getString(25);
-                    break;
+                //                    strOption += EscapeSequence.getString(26);
                 case 2:
                     strOption += EscapeSequence.getString(18);
                     strOption += EscapeSequence.getString(26);
@@ -765,36 +555,6 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
 
         return true;
     }
-
-//    public boolean ejectPaper(int mode) {
-//        try {
-//            if (!posPrinter.getDeviceEnabled()) {
-//                return false;
-//            }
-//
-//            posPrinter.ejectPaper(mode);
-//        } catch (JposException e) {
-//            e.printStackTrace();
-//
-//            return false;
-//        }
-//
-//        return true;
-//    }
-//
-//    public byte getPresenterStatus() {
-//        try {
-//            if (!posPrinter.getDeviceEnabled()) {
-//                return -1;
-//            }
-//
-//            return posPrinter.getPresenterStatus();
-//        } catch (JposException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return -1;
-//    }
 
     public boolean formFeed() {
         try {
@@ -1218,7 +978,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
     public boolean smartCardRWOpen() {
         if (setTargetDevice(mPortType, "SmartCardRW", BXLConfigLoader.DEVICE_CATEGORY_SMART_CARD_RW, mAddress)) {
             try {
-                if (posPrinter.getClaimed() == false) {
+                if (!posPrinter.getClaimed()) {
                     return false;
                 }
 
@@ -1382,7 +1142,7 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
     public boolean localSmartCardRWOpen() {
         if (setTargetDevice(mPortType, "LocalSmartCardRW", BXLConfigLoader.DEVICE_CATEGORY_LOCAL_SMART_CARD_RW, mAddress)) {
             try {
-                if (posPrinter.getClaimed() == false) {
+                if (!posPrinter.getClaimed()) {
                     return false;
                 }
 
@@ -1623,10 +1383,6 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
             if (fm instanceof ImageFragment) {
                 ((ImageFragment) fm).setDeviceLog("Error : " + errorEvent);
             }
-            /**Se ocupa*/
-//            if (fm instanceof BlankFragment3) {
-//                ((BlankFragment3) fm).setDeviceLog("Error : " + errorEvent);
-//            }
 
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog("Error : " + errorEvent);
@@ -1662,11 +1418,6 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
                 ((ImageFragment) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
             }
 
-            /**Se ocupa*/
-//            if (fm instanceof BlankFragment3) {
-//                ((BlankFragment3) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
-//            }
-
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog("outputComplete : " + outputCompleteEvent.getOutputID());
             }
@@ -1696,11 +1447,6 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
             if (fm instanceof ImageFragment) {
                 ((ImageFragment) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));
             }
-
-            /**Se ocupa*/
-//            if (fm instanceof BlankFragment3) {
-//                ((BlankFragment3) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));
-//            }
 
             if (fm instanceof BarcodeFragment) {
                 ((BarcodeFragment) fm).setDeviceLog(getSUEMessage(statusUpdateEvent.getStatus()));

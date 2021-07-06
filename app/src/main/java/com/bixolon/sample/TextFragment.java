@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bixolon.sample.PrinterControl.BixolonPrinter;
+
 public class TextFragment extends Fragment implements OnClickListener{
 
     private EditText textData = null;
@@ -144,34 +146,32 @@ public class TextFragment extends Fragment implements OnClickListener{
 
                 switch(spinnerAlignment)
                 {
-                    case 0:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
-                    case 1:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;	    break;
-                    case 2:		alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;		break;
-                    default:	alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;		break;
+                    case 1:		alignment = BixolonPrinter.ALIGNMENT_CENTER;	    break;
+                    case 2:		alignment = BixolonPrinter.ALIGNMENT_RIGHT;		break;
+                    default:	alignment = BixolonPrinter.ALIGNMENT_LEFT;		break;
                 }
 
                 switch(spinnerFont)
                 {
-                    case 0:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
-                    case 1:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_B;	break;
-                    case 2:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_C;	break;
+                    case 1:		attribute |= BixolonPrinter.ATTRIBUTE_FONT_B;	break;
+                    case 2:		attribute |= BixolonPrinter.ATTRIBUTE_FONT_C;	break;
                     /*case 3:		attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_D;	break;*/
-                    default:	attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_FONT_A;	break;
+                    default:	attribute |= BixolonPrinter.ATTRIBUTE_FONT_A;	break;
                 }
 
                 if(checkBold.isChecked())
                 {
-                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_BOLD;
+                    attribute |= BixolonPrinter.ATTRIBUTE_BOLD;
                 }
 
                 if(checkUnderline.isChecked())
                 {
-                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_UNDERLINE;
+                    attribute |= BixolonPrinter.ATTRIBUTE_UNDERLINE;
                 }
 
                 if(checkReverse.isChecked())
                 {
-                    attribute |= PrinterConnectActivity.getPrinterInstance().ATTRIBUTE_REVERSE;
+                    attribute |= BixolonPrinter.ATTRIBUTE_REVERSE;
                 }
 
 //                PrinterConnectActivity.getPrinterInstance().printText(Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY).toString(), alignment, attribute, (spinnerSize + 1));

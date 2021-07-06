@@ -123,8 +123,8 @@ public class EtcFragment extends Fragment implements View.OnClickListener {
 
         PrinterConnectActivity.getPrinterInstance().printText("Transaction mode\n", 0, 0, 1);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bixolonlogo);
-        PrinterConnectActivity.getPrinterInstance().printImage(bitmap, 250, PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER, 20, 0, 1);
-        PrinterConnectActivity.getPrinterInstance().printBarcode("123456789012", PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_ITF, 3, 150, 2, PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_BELOW);
+        PrinterConnectActivity.getPrinterInstance().printImage(bitmap, 250, BixolonPrinter.ALIGNMENT_CENTER, 20, 0, 1);
+        PrinterConnectActivity.getPrinterInstance().printBarcode("123456789012", BixolonPrinter.BARCODE_TYPE_ITF, 3, 150, 2, BixolonPrinter.BARCODE_HRI_BELOW);
 
         PrinterConnectActivity.getPrinterInstance().endTransactionPrint();
     }

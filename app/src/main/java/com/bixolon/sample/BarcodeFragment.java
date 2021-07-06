@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bixolon.sample.PrinterControl.BixolonPrinter;
+
 public class BarcodeFragment extends Fragment implements View.OnClickListener {
 
     private EditText editTextHeight;
@@ -72,8 +74,6 @@ public class BarcodeFragment extends Fragment implements View.OnClickListener {
                 spinnerSymbology = position;
                 switch (spinnerSymbology) {
                     case 0:
-                        editTextBarcodeData.setText("012345678905");
-                        break;
                     case 1:
                         editTextBarcodeData.setText("012345678905");
                         break;
@@ -104,11 +104,7 @@ public class BarcodeFragment extends Fragment implements View.OnClickListener {
                         editTextBarcodeData.setText("http://www.bixolon.com");
                         break;
                     case 10:
-                        editTextBarcodeData.setText("http://www.bixolon.com");
-                        break;
                     case 11:
-                        editTextBarcodeData.setText("http://www.bixolon.com");
-                        break;
                     case 12:
                         editTextBarcodeData.setText("http://www.bixolon.com");
                         break;
@@ -162,73 +158,70 @@ public class BarcodeFragment extends Fragment implements View.OnClickListener {
 
                 switch (spinnerSymbology) {
                     case 0:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_UPCA;
+                        symbology = BixolonPrinter.BARCODE_TYPE_UPCA;
                         break;
                     case 1:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_UPCE;
+                        symbology = BixolonPrinter.BARCODE_TYPE_UPCE;
                         break;
                     case 2:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN8;
+                        symbology = BixolonPrinter.BARCODE_TYPE_EAN8;
                         break;
                     case 3:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN13;
+                        symbology = BixolonPrinter.BARCODE_TYPE_EAN13;
                         break;
                     case 4:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_ITF;
+                        symbology = BixolonPrinter.BARCODE_TYPE_ITF;
                         break;
                     case 5:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Codabar;
+                        symbology = BixolonPrinter.BARCODE_TYPE_Codabar;
                         break;
                     case 6:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code39;
+                        symbology = BixolonPrinter.BARCODE_TYPE_Code39;
                         break;
                     case 7:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code93;
+                        symbology = BixolonPrinter.BARCODE_TYPE_Code93;
                         break;
                     case 8:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_Code128;
+                        symbology = BixolonPrinter.BARCODE_TYPE_Code128;
                         break;
                     case 9:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_PDF417;
+                        symbology = BixolonPrinter.BARCODE_TYPE_PDF417;
                         break;
                     case 10:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_MAXICODE;
+                        symbology = BixolonPrinter.BARCODE_TYPE_MAXICODE;
                         break;
                     case 11:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_DATAMATRIX;
+                        symbology = BixolonPrinter.BARCODE_TYPE_DATAMATRIX;
                         break;
                     case 12:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_QRCODE;
+                        symbology = BixolonPrinter.BARCODE_TYPE_QRCODE;
                         break;
                     case 13:
-                        symbology = PrinterConnectActivity.getPrinterInstance().BARCODE_TYPE_EAN128;
+                        symbology = BixolonPrinter.BARCODE_TYPE_EAN128;
                         break;
                 }
 
                 switch (spinnerAlignment) {
-                    case 0:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
-                        break;
                     case 1:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_CENTER;
+                        alignment = BixolonPrinter.ALIGNMENT_CENTER;
                         break;
                     case 2:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_RIGHT;
+                        alignment = BixolonPrinter.ALIGNMENT_RIGHT;
                         break;
                     default:
-                        alignment = PrinterConnectActivity.getPrinterInstance().ALIGNMENT_LEFT;
+                        alignment = BixolonPrinter.ALIGNMENT_LEFT;
                         break;
                 }
 
                 switch (spinnerHri) {
                     case 0:
-                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_NONE;
+                        Hri = BixolonPrinter.BARCODE_HRI_NONE;
                         break;
                     case 1:
-                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_ABOVE;
+                        Hri = BixolonPrinter.BARCODE_HRI_ABOVE;
                         break;
                     case 2:
-                        Hri = PrinterConnectActivity.getPrinterInstance().BARCODE_HRI_BELOW;
+                        Hri = BixolonPrinter.BARCODE_HRI_BELOW;
                         break;
                 }
 
