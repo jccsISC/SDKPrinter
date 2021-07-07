@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
 import android.provider.Settings;
 import android.view.Gravity;
@@ -173,9 +174,10 @@ public class BlankFragment2 extends Fragment implements ItemListener {
         mHandler.obtainMessage(0).sendToTarget();
 
         mProgressLarge.setVisibility(View.VISIBLE);
-
         if (PrinterConnectActivity.getPrinterInstance().printerOpen(portType, SPP_R200III, address, checkBoxAsyncMode.isChecked())) {
             goTOImageFragment(requireView());
+        } else {
+            mHandler.obtainMessage(1, 0, 0, "Fail to printer open!!").sendToTarget();
         }
 
 //        new Thread(() -> {
@@ -189,7 +191,7 @@ public class BlankFragment2 extends Fragment implements ItemListener {
 
     }
 
-    public void buttonPopupwindow(View view, String name, String address){
+    public void buttonPopupwindow(View view, String name, String address) {
         LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
         View viewPopupwindow = layoutInflater.inflate(R.layout.card_item_device_detail, null);
         final PopupWindow popupWindow = new PopupWindow(viewPopupwindow, 900, 500, true);
